@@ -1,18 +1,22 @@
-"""
-Polls financial news from NewsAPI and publishes structured sentiment-ready data to a queue.
+"""Polls financial news from NewsAPI and publishes structured sentiment-ready data to a queue.
 """
 
+import datetime
 import os
 import time
-import datetime
+
 import requests
+from tenacity import (
+    retry,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_exponential,
+)
 
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
-
+from app.config import get_newsapi_rate_limit, get_newsapi_timeout
 from app.logger import setup_logger
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.rate_limit import RateLimiter
-from app.config import get_newsapi_rate_limit, get_newsapi_timeout
 
 logger = setup_logger(__name__)
 
