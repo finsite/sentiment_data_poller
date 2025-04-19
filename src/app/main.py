@@ -1,5 +1,4 @@
-"""
-Main entry point for the sentiment data poller.
+"""Main entry point for the sentiment data poller.
 
 This application polls sentiment-related sources (e.g., news, social media)
 based on the POLLER_TYPE environment variable and sends structured data
@@ -7,9 +6,11 @@ to a message queue for downstream analysis.
 """
 
 import os
-from app.logger import setup_logger
+
 from pollers.poller_news import run_news_poller
 from pollers.poller_social import run_social_poller
+
+from app.logger import setup_logger
 
 logger = setup_logger("main")
 
