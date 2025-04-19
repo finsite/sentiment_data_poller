@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentiment_data_poller
+  labels:
+    app: sentiment_data_poller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sentiment_data_poller
+  template:
+    metadata:
+      labels:
+        app: sentiment_data_poller
+    spec:
+      containers:
+        - name: sentiment_data_poller
+          image: sentiment_data_poller:latest
+          ports:
+            - containerPort: 8080

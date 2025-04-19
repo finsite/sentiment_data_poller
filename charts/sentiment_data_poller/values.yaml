@@ -1,0 +1,11 @@
+---
+replicaCount: 1
+
+image:
+  repository: sentiment_data_poller
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
