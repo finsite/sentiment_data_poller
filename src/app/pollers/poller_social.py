@@ -1,5 +1,4 @@
-"""Polls social media content (e.g., Reddit, Twitter) and sends it to a message queue.
-"""
+"""Polls social media content (e.g., Reddit, Twitter) and sends it to a message queue."""
 
 import datetime
 

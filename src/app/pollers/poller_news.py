@@ -1,5 +1,4 @@
-"""Polls financial news headlines and sends them to a message queue.
-"""
+"""Polls financial news headlines and sends them to a message queue."""
 
 import datetime
 
