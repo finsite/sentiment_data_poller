@@ -3,16 +3,16 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "sentiment_data_poller"
+name = "template_python"
 version = "0.1.0"
-description = "A Python project to query stock data"
+description = "A template for the default python project"
 readme = "README.md"
 requires-python = ">=3.7"
 license = { text = "MIT" }
 authors = [
   { name = "mark quinn", email = "mobious_99@yahoo.com" }
 ]
-keywords = ["python", "sentiment", "data", "polling"]
+keywords = ["python", "stock", "data", "polling"]
 classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.7",
@@ -124,8 +124,19 @@ name = "cz_conventional_commits"
 version = "0.1.0"
 tag_format = "v$version"
 
-
-remove setup.cfg
-copy all workflow jobs over
-update pyproject.toml
-copy labeler to all repos
+[tool.bumpversion]
+current_version = "0.1.21"
+parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
+serialize = ["{major}.{minor}.{patch}"]
+search = "{current_version}"
+replace = "{new_version}"
+regex = false
+ignore_missing_version = false
+ignore_missing_files = false
+tag = true
+sign_tags = false
+tag_name = "v{new_version}"
+tag_message = "Bump version: {current_version} → {new_version}"
+allow_dirty = true
+commit = true
+message = "Bump version: {current_version} → {new_version}"
