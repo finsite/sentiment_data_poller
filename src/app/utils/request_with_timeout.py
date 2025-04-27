@@ -1,4 +1,5 @@
-"""Request data from a URL with a timeout.
+"""
+Request data from a URL with a timeout.
 
 The function performs a GET request to the given URL, with a specified timeout in
 seconds. If the request is successful, it returns the JSON response as a dictionary. If
@@ -6,6 +7,7 @@ the request fails, it logs an error message and returns None.
 """
 
 import requests
+
 from src.utils.setup_logger import setup_logger
 
 # Set up logger for this module
@@ -13,7 +15,8 @@ logger = setup_logger(__name__)
 
 
 def request_with_timeout(url: str, timeout: int = 10) -> dict | None:
-    """Request data from a URL with a timeout.
+    """
+    Request data from a URL with a timeout.
 
     Args:
     ----
@@ -23,7 +26,6 @@ def request_with_timeout(url: str, timeout: int = 10) -> dict | None:
     Returns:
     -------
         Optional[dict]: The JSON response from the request, or None if the request fails.
-
     """
     # Check if the URL is empty
     if not url:
