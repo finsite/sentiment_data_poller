@@ -1,25 +1,20 @@
+---
 site_name: Sentiment Data Poller
 site_description: Documentation for the Template Python Project
 site_author: Mark Quinn
 repo_url: https://github.com/finsite/sentiment_data_poller
 theme:
   name: material
-
 nav:
   - Home: index.md
   - API Reference: api.md
-
 plugins:
   - search
   - mkdocstrings:
       handlers:
         python:
-          setup_commands:
-            - import sys; sys.path.append('src')
-
+          setup_commands: [import sys; sys.path.append('src')]
 markdown_extensions:
   - admonition
   - toc:
       permalink: true
-
-repo_url: https://github.com/finsite/sentiment_data_poller
