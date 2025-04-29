@@ -4,4 +4,4 @@ name: sentiment_data_poller
 description: A Helm chart for sentiment_data_poller
 type: application
 version: 0.1.0
-appVersion: '1.0'
+appVersion: "1.0"
