@@ -8,6 +8,7 @@
 
 ## [0.1.0] - 2025-04-27
 
-- Merge branch 'main' of https://github.com/finsite/sentiment_data_poller (Mark Quinn)
+- Merge branch 'main' of https://github.com/finsite/sentiment_data_poller (Mark
+  Quinn)
 - Making sure Dockerfile is correct (Mark Quinn)
 - bump: patch version + changelog [skip ci] (github-actions[bot])
