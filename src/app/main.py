@@ -1,8 +1,9 @@
-"""Main entry point for the sentiment data poller.
+"""
+Main entry point for the sentiment data poller.
 
-This application polls sentiment-related sources (e.g., news, social media)
-based on the POLLER_TYPE environment variable and sends structured data
-to a message queue for downstream analysis.
+This application polls sentiment-related sources (e.g., news, social media) based on the
+POLLER_TYPE environment variable and sends structured data to a message queue for
+downstream analysis.
 """
 
 import os

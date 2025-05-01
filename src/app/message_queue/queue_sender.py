@@ -39,12 +39,12 @@ if QUEUE_TYPE == "sqs":
 
 
 def publish_to_queue(payload: list[dict]) -> None:
-    """Publishes a list of messages to the configured message queue.
+    """
+    Publishes a list of messages to the configured message queue.
 
     Args:
     ----
         payload (list[dict]): List of JSON-serializable dictionaries.
-
     """
     for message in payload:
         if QUEUE_TYPE == "rabbitmq":

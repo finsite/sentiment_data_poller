@@ -1,4 +1,5 @@
-"""Polls financial news from NewsAPI and publishes structured sentiment-ready data to a queue."""
+"""Polls financial news from NewsAPI and publishes structured sentiment-ready data to a
+queue."""
 
 import datetime
 import os
