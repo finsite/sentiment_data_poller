@@ -4,21 +4,15 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in requirements.in
 #
-<<<<<<< HEAD
 boto3==1.38.7
     # via -r requirements.in
 botocore==1.38.7
-=======
-boto3==1.38.5
-    # via -r requirements.in
-botocore==1.38.5
->>>>>>> 1511d20d5752ca09d858766c69fc382a79d0eb69
     # via
     #   boto3
     #   s3transfer
 certifi==2025.4.26
     # via requests
-charset-normalizer==3.4.1
+charset-normalizer==3.4.2
     # via requests
 colorama==0.4.6
     # via loguru
@@ -42,7 +36,7 @@ loguru==0.7.3
     # via -r requirements.in
 matplotlib==3.10.1
     # via -r requirements.in
-numpy==2.2.5
+numpy==1.26.4
     # via
     #   -r requirements.in
     #   contourpy
