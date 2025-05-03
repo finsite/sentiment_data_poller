@@ -9,7 +9,7 @@ individual fields.
 
 from typing import Any
 
-from src.utils.setup_logger import setup_logger
+from app.utils.setup_logger import setup_logger
 
 # Set up logger for this module
 logger = setup_logger(__name__)

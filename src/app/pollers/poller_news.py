@@ -14,7 +14,7 @@ from tenacity import (
 )
 
 from app.config import get_newsapi_rate_limit, get_newsapi_timeout
-from app.logger import setup_logger
+from app.utils.setup_logger import setup_logger
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.rate_limit import RateLimiter
 
@@ -30,7 +30,7 @@ POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "300"))  # 5 minutes
 
 # Set up rate limiter per API
 FILL_RATE, CAPACITY = get_newsapi_rate_limit()
-rate_limiter = RateLimiter(rate=FILL_RATE, capacity=CAPACITY)
+rate_limiter = RateLimiter(max_requests=FILL_RATE, time_window=CAPACITY)
 
 
 @retry(
@@ -40,7 +40,7 @@ rate_limiter = RateLimiter(rate=FILL_RATE, capacity=CAPACITY)
 )
 def fetch_news(symbol: str) -> list[dict]:
     """Fetch news articles for a given stock symbol from NewsAPI."""
-    rate_limiter.consume()
+    rate_limiter.acquire("NewsPoller")
 
     try:
         logger.info(f"Fetching news for: {symbol}")

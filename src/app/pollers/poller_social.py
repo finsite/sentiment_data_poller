@@ -3,8 +3,8 @@ queue."""
 
 import datetime
 
-from app.logger import setup_logger
-from app.queue_sender import publish_to_queue
+from app.utils.setup_logger import setup_logger
+from app.message_queue.queue_sender import publish_to_queue
 
 logger = setup_logger(__name__)
 

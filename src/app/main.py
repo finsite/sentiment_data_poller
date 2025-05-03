@@ -8,10 +8,9 @@ downstream analysis.
 
 import os
 
-from pollers.poller_news import run_news_poller
-from pollers.poller_social import run_social_poller
-
-from app.logger import setup_logger
+from app.pollers.poller_news import run_news_poller
+from app.pollers.poller_social import run_social_poller
+from app.utils.setup_logger import setup_logger
 
 logger = setup_logger("main")
 

@@ -1,8 +1,6 @@
 import logging
 import os
-
 import hvac
-
 logger = logging.getLogger(__name__)
 
 
