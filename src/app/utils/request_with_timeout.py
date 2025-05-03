@@ -7,6 +7,7 @@ the request fails, it logs an error message and returns None.
 """
 
 import requests
+
 from app.utils.setup_logger import setup_logger
 
 # Set up logger for this module

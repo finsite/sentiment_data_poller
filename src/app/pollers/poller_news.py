@@ -13,10 +13,11 @@ from tenacity import (
     wait_exponential,
 )
 
+from app.config import get_symbols  # ✅ fetch symbols from Vault/env
 from app.config import get_newsapi_rate_limit, get_newsapi_timeout
-from app.utils.setup_logger import setup_logger
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.rate_limit import RateLimiter
+from app.utils.setup_logger import setup_logger
 
 logger = setup_logger(__name__)
 
@@ -24,8 +25,6 @@ logger = setup_logger(__name__)
 NEWSAPI_KEY = os.getenv("NEWSAPI_KEY")
 NEWSAPI_URL = "https://newsapi.org/v2/everything"
 QUERY = os.getenv("NEWSAPI_QUERY", "stocks OR earnings OR finance")
-SYMBOLS = os.getenv("SYMBOLS", "AAPL,MSFT,TSLA").split(",")
-
 POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "300"))  # 5 minutes
 
 # Set up rate limiter per API
@@ -81,8 +80,9 @@ def run_news_poller() -> None:
 
     while True:
         all_payloads = []
+        symbols = get_symbols()  # ✅ Fetch dynamically each run
 
-        for symbol in SYMBOLS:
+        for symbol in symbols:
             articles = fetch_news(symbol)
             for article in articles:
                 payload = build_payload(symbol, article)
