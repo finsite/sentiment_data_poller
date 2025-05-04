@@ -43,8 +43,10 @@ def publish_to_queue(payload: list[dict]) -> None:
     Publishes a list of messages to the configured message queue.
 
     Args:
-    ----
-        payload (list[dict]): List of JSON-serializable dictionaries.
+      payload(list[dict]): List of JSON-serializable dictionaries.
+      payload: list[dict]:
+
+    Returns:
     """
     for message in payload:
         if QUEUE_TYPE == "rabbitmq":
@@ -56,7 +58,14 @@ def publish_to_queue(payload: list[dict]) -> None:
 
 
 def _send_to_rabbitmq(data: dict) -> None:
-    """Helper to send a message to RabbitMQ."""
+    """
+    Helper to send a message to RabbitMQ.
+
+    Args:
+      data: dict:
+
+    Returns:
+    """
     try:
         credentials = pika.PlainCredentials(RABBITMQ_USER, RABBITMQ_PASSWORD)
         connection = pika.BlockingConnection(
@@ -80,7 +89,14 @@ def _send_to_rabbitmq(data: dict) -> None:
 
 
 def _send_to_sqs(data: dict) -> None:
-    """Helper to send a message to AWS SQS."""
+    """
+    Helper to send a message to AWS SQS.
+
+    Args:
+      data: dict:
+
+    Returns:
+    """
     if not sqs_client or not SQS_QUEUE_URL:
         logger.error("SQS client is not initialized or missing SQS_QUEUE_URL")
         return

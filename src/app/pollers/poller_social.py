@@ -8,6 +8,7 @@ logger = setup_logger(__name__)
 
 
 def run_social_poller() -> None:
+    """"""
     logger.info("Running social sentiment poller...")
 
     symbols = get_symbols()

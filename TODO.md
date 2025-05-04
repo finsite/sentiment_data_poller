@@ -1,21 +1,26 @@
 # TODO List for `sentiment_data` Repository
 
-This document outlines all pending tasks and enhancement ideas for bringing the `sentiment_data` repository to MVP and beyond.
+This document outlines all pending tasks and enhancement ideas for bringing the
+`sentiment_data` repository to MVP and beyond.
 
 ---
 
 ## ✅ MVP Completion Tasks
 
 - [ ] **Implement Sentiment Pollers**
+
   - [ ] Twitter/X sentiment integration
   - [ ] Reddit sentiment scraping (via Pushshift or praw)
   - [ ] News headline sentiment (via FinBERT or HuggingFace models)
   - [ ] Finviz or MarketWatch headline sentiment
 
 - [ ] **Standardize Sentiment Schema**
-  - Define unified payload format (e.g., source, symbol, sentiment_score, text_sample, timestamp)
+
+  - Define unified payload format (e.g., source, symbol, sentiment_score,
+    text_sample, timestamp)
 
 - [ ] **Implement Message Queue Integration**
+
   - [ ] RabbitMQ support
   - [ ] SQS fallback support
   - [ ] Abstracted `QueueSender` with retries and logging
@@ -29,6 +34,7 @@ This document outlines all pending tasks and enhancement ideas for bringing the 
 ## 🔁 Data Handling Enhancements
 
 - [ ] **Rate Limiting and Retry Logic**
+
   - Implement `RateLimiter` utility
   - Add exponential backoff with `retry_request`
 
@@ -51,6 +57,7 @@ This document outlines all pending tasks and enhancement ideas for bringing the 
 ## 💾 Caching & Storage
 
 - [ ] **Implement Local Caching (Optional)**
+
   - Prevent double-fetching or rate-limit burn from identical queries
 
 - [ ] **Store Sentiment Results (Optional)**
@@ -99,4 +106,5 @@ This document outlines all pending tasks and enhancement ideas for bringing the 
 
 ---
 
-_Keep this file up to date as features evolve. Structure PRs around closing checklist items._
+_Keep this file up to date as features evolve. Structure PRs around closing
+checklist items._

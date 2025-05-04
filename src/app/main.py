@@ -16,6 +16,7 @@ logger = setup_logger("main")
 
 
 def main() -> None:
+    """"""
     poller_type = os.getenv("POLLER_TYPE", "news").lower()
     logger.info(f"Sentiment data poller starting: type={poller_type}")
 
