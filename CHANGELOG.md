@@ -30,7 +30,7 @@
 
 - (Placeholder for new changes)
 
-## [0.1.33] - 2025-04-27
+## [0.1.44] - 2025-04-27
 
 - Merge branch 'main' of https://github.com/finsite/sentiment_data_poller (Mark
   Quinn)
