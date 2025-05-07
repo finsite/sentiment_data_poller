@@ -1,5 +1,4 @@
-"""
-Poller modules for sentiment data sources.
+"""Poller modules for sentiment data sources.
 
 This package includes individual pollers for different sentiment-related data feeds such
 as financial news, social media posts, SEC filings, and more.

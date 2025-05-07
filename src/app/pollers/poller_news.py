@@ -1,5 +1,6 @@
 """Polls financial news from NewsAPI and publishes structured sentiment-ready data to a
-queue."""
+queue.
+"""
 
 import datetime
 import os
@@ -38,13 +39,13 @@ rate_limiter = RateLimiter(max_requests=FILL_RATE, time_window=CAPACITY)
     retry=retry_if_exception_type(requests.RequestException),
 )
 def fetch_news(symbol: str) -> list[dict]:
-    """
-    Fetch news articles for a given stock symbol from NewsAPI.
+    """Fetch news articles for a given stock symbol from NewsAPI.
 
     Args:
       symbol: str:
 
     Returns:
+
     """
     rate_limiter.acquire("NewsPoller")
 
@@ -66,14 +67,14 @@ def fetch_news(symbol: str) -> list[dict]:
 
 
 def build_payload(symbol: str, article: dict) -> dict:
-    """
-    Construct output payload from article data.
+    """Construct output payload from article data.
 
     Args:
       symbol: str:
       article: dict:
 
     Returns:
+
     """
     return {
         "symbol": symbol,

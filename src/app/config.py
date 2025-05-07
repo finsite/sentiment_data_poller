@@ -1,5 +1,4 @@
-"""
-Configuration module for the sentiment poller.
+"""Configuration module for the sentiment poller.
 
 Provides typed getter functions to retrieve configuration values from HashiCorp Vault,
 environment variables, or defaults — in that order.
@@ -14,8 +13,7 @@ _vault = VaultClient()
 
 
 def get_config_value(key: str, default: str | None = None) -> str:
-    """
-    Retrieve a configuration value from Vault, environment variable, or default.
+    """Retrieve a configuration value from Vault, environment variable, or default.
 
     Args:
       key(str): The configuration key to retrieve.
@@ -28,6 +26,7 @@ def get_config_value(key: str, default: str | None = None) -> str:
 
     Raises:
       ValueError: If the key is missing and no default is provided.
+
     """
     val = _vault.get(key, os.getenv(key))
     if val is None:

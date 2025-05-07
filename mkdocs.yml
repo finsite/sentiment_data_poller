@@ -3,23 +3,19 @@ site_name: Sentiment_Data_Poller
 site_description: Documentation for the Sentiment_Data_Poller Project
 site_author: Mark Quinn
 repo_url: https://github.com/finsite/sentiment_data_poller
-
 theme:
   name: material
-
 nav:
   - Home: index.md
   - API Reference: api.md
   - More Details: more-details.md
   - Other Topic: other-topic.md
-
 plugins:
   - search
   - mkdocstrings:
       handlers:
         python:
-          paths: ["src"]
-
+          paths: [src]
 markdown_extensions:
   - admonition
   - toc:
