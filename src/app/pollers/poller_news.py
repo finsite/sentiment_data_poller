@@ -1,6 +1,5 @@
-"""Polls financial news from NewsAPI and publishes structured sentiment-ready data to a
-queue.
-"""
+"""Polls financial news from NewsAPI and publishes structured sentiment-ready
+data to a queue."""
 
 import datetime
 import os
@@ -43,9 +42,9 @@ def fetch_news(symbol: str) -> list[dict]:
 
     Args:
       symbol: str:
+      symbol: str:
 
     Returns:
-
     """
     rate_limiter.acquire("NewsPoller")
 
@@ -72,9 +71,10 @@ def build_payload(symbol: str, article: dict) -> dict:
     Args:
       symbol: str:
       article: dict:
+      symbol: str:
+      article: dict:
 
     Returns:
-
     """
     return {
         "symbol": symbol,
