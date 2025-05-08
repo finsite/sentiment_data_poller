@@ -2,46 +2,28 @@
 
 <<<<<<< HEAD
 
-## [Unreleased]
+## v0.3.1 (2025-05-07)
 
-## [0.1.44] - 2025-05-05
+### Fix
 
-## [0.1.43] - 2025-05-04
+- **test**: Disable pytest performance benchmark
 
-## [0.1.42] - 2025-05-04
+## v0.3.0 (2025-05-07)
 
-## [0.1.41] - 2025-05-03
+### Feat
 
-## [0.1.40] - 2025-05-03
+- **docs**: Added automated releases
+- **docs**: Added automated releases
+- **docs**: Added automated releases
 
-## [0.1.39] - 2025-05-03
+### Fix
 
-## [0.1.38] - 2025-05-02
-
-## [0.1.37] - 2025-05-01
-
-## [0.1.36] - 2025-04-30
-
-## [0.1.35] - 2025-04-30
-
-## [0.1.34] - 2025-04-29
-
-## [0.1.31] - 2025-04-29
-
-## [0.1.30] - 2025-04-28
-
-- (Placeholder for new changes)
-
-## [0.2.1] - 2025-04-27
-
-=======
-
-> > > > > > > 6b4e13ba27dcc47cfb59a401bdc5aa89dbb5a2e7
-
-- Merge branch 'main' of https://github.com/finsite/sentiment_data_poller (Mark
-  Quinn)
-- Making sure Dockerfile is correct (Mark Quinn)
-- bump: patch version + changelog [skip ci] (github-actions[bot])
+- **test**: Disable pytest performance benchmark
+- **test**: Disable pytest performance benchmark
+- **docs**: Fix git tag version number
+- **lint**: Fix pre-commit and disable pytest workflow
+- **docker**: Fix workflow not getting version
+- **docs**: Fix pyproject.toml to adjust version to dynamic = [version]
 
 ## v0.2.0 (2025-05-06)
 
