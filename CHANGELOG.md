@@ -2,6 +2,12 @@
 
 <<<<<<< HEAD
 
+## v0.3.2 (2025-05-08)
+
+### Fix
+
+- **docs**: Running docformatter to fix repos
+
 ## v0.3.1 (2025-05-07)
 
 ### Fix
