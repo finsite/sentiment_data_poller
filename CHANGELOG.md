@@ -2,6 +2,12 @@
 
 <<<<<<< HEAD
 
+## v0.3.3 (2025-05-11)
+
+### Fix
+
+- **pollers**: verifying imports work
+
 ## v0.3.2 (2025-05-08)
 
 ### Fix
