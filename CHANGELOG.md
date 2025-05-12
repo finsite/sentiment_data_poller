@@ -2,6 +2,12 @@
 
 <<<<<<< HEAD
 
+## v0.3.4 (2025-05-12)
+
+### Fix
+
+- **docker**: fixing bad dockerfile
+
 ## v0.3.3 (2025-05-11)
 
 ### Fix
