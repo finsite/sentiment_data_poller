@@ -3,10 +3,11 @@
 import datetime
 import time
 import urllib.parse
-import feedparser
 from typing import Any
 
-from app.config import get_symbols, get_poll_interval
+import feedparser
+
+from app.config import get_poll_interval, get_symbols
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
@@ -41,11 +42,13 @@ def fetch_google_news(symbol: str) -> list[dict[str, Any]]:
             logger.warning(f"Failed to parse publish date for {symbol}: {published} ({e})")
             timestamp = datetime.datetime.utcnow().isoformat()
 
-        news_items.append({
-            "timestamp": timestamp,
-            "headline": title,
-            "url": link,
-        })
+        news_items.append(
+            {
+                "timestamp": timestamp,
+                "headline": title,
+                "url": link,
+            }
+        )
 
     return news_items
 

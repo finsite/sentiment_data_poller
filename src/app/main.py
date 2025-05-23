@@ -6,17 +6,18 @@ a message queue for downstream analysis.
 """
 
 import os
-from app.utils.setup_logger import setup_logger
+
+from app.pollers.poller_benzinga import run_benzinga_poller
+from app.pollers.poller_finviz import run_finviz_poller
+from app.pollers.poller_google_news import run_google_news_poller
 
 # Import poller runners
 from app.pollers.poller_newsapi import run_newsapi_poller
-from app.pollers.poller_finviz import run_finviz_poller
+from app.pollers.poller_seeking_alpha import run_seeking_alpha_poller
 from app.pollers.poller_stocktwits import run_stocktwits_poller
 from app.pollers.poller_yahoo_finance import run_yahoo_poller
-from app.pollers.poller_google_news import run_google_news_poller
-from app.pollers.poller_seeking_alpha import run_seeking_alpha_poller
 from app.pollers.poller_youtube import run_youtube_poller
-from app.pollers.poller_benzinga import run_benzinga_poller
+from app.utils.setup_logger import setup_logger
 
 # Optional placeholder or testing stub
 # from app.pollers.poller_reddit import run_reddit_poller
@@ -46,7 +47,9 @@ def main() -> None:
     if runner:
         runner()
     else:
-        logger.error(f"❌ Unknown POLLER_TYPE: {poller_type}. Available options: {', '.join(POLLERS)}")
+        logger.error(
+            f"❌ Unknown POLLER_TYPE: {poller_type}. Available options: {', '.join(POLLERS)}"
+        )
 
 
 if __name__ == "__main__":

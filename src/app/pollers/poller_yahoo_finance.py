@@ -2,11 +2,12 @@
 
 import datetime
 import time
-import requests
-from bs4 import BeautifulSoup, Tag
 from typing import Any
 
-from app.config import get_symbols, get_poll_interval
+import requests
+from bs4 import BeautifulSoup, Tag
+
+from app.config import get_poll_interval, get_symbols
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
@@ -35,11 +36,13 @@ def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
             if isinstance(href, str) and href.startswith("/news/"):
                 headline = tag.get_text(strip=True)
                 article_url = f"https://finance.yahoo.com{href}"
-                news_items.append({
-                    "timestamp": datetime.datetime.utcnow().isoformat(),
-                    "headline": headline,
-                    "url": article_url,
-                })
+                news_items.append(
+                    {
+                        "timestamp": datetime.datetime.utcnow().isoformat(),
+                        "headline": headline,
+                        "url": article_url,
+                    }
+                )
 
         logger.debug(f"Fetched {len(news_items)} headlines from Yahoo Finance for {symbol}")
         return news_items

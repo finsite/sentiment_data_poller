@@ -2,6 +2,7 @@
 
 import datetime
 import time
+
 import requests
 from tenacity import (
     retry,
@@ -11,11 +12,11 @@ from tenacity import (
 )
 
 from app.config import (
-    get_symbols,
     get_newsapi_key,
-    get_poll_interval,
     get_newsapi_rate_limit,
     get_newsapi_timeout,
+    get_poll_interval,
+    get_symbols,
 )
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.rate_limit import RateLimiter

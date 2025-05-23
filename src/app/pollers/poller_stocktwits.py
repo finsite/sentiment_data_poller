@@ -2,9 +2,10 @@
 
 import datetime
 import time
+
 import requests
 
-from app.config import get_symbols, get_poll_interval
+from app.config import get_poll_interval, get_symbols
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 

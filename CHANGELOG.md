@@ -1,30 +1,28 @@
-# Changelog
-
-<<<<<<< HEAD
+## Unreleased
 
 ## v0.3.3 (2025-05-11)
 
 ### Fix
 
-- **pollers**: verifying imports work
+- **docker**: fixing bad dockerfile
 
 ## v0.3.2 (2025-05-08)
 
 ### Fix
 
-- **docs**: Running docformatter to fix repos
+- **pollers**: verifying imports work
 
 ## v0.3.1 (2025-05-07)
 
 ### Fix
 
+- **docs**: Running docformatter to fix repos
 - **test**: Disable pytest performance benchmark
 
 ## v0.3.0 (2025-05-07)
 
 ### Feat
 
-- **docs**: Added automated releases
 - **docs**: Added automated releases
 - **docs**: Added automated releases
 
@@ -41,6 +39,7 @@
 
 ### Feat
 
+- **docs**: Added automated releases
 - **docs**: Update changlog generation to commitzen
 
 ## v0.1.44 (2025-05-05)
@@ -67,7 +66,7 @@
 
 ## v0.1.35 (2025-04-30)
 
-## v0.1.34 (2025-04-29)
+## v0.1.34 (2025-04-28)
 
 ## v0.1.33 (2025-04-28)
 

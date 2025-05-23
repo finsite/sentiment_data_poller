@@ -3,9 +3,10 @@
 import datetime
 import time
 import urllib.parse
+
 import feedparser
 
-from app.config import get_symbols, get_poll_interval
+from app.config import get_poll_interval, get_symbols
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
@@ -23,13 +24,15 @@ def fetch_seeking_alpha_feed(symbol: str) -> list[dict]:
 
         results = []
         for entry in feed.entries:
-            results.append({
-                "timestamp": entry.get("published", datetime.datetime.utcnow().isoformat()),
-                "headline": entry.get("title", ""),
-                "summary": entry.get("summary", ""),
-                "url": entry.get("link", ""),
-                "source_name": "Seeking Alpha",
-            })
+            results.append(
+                {
+                    "timestamp": entry.get("published", datetime.datetime.utcnow().isoformat()),
+                    "headline": entry.get("title", ""),
+                    "summary": entry.get("summary", ""),
+                    "url": entry.get("link", ""),
+                    "source_name": "Seeking Alpha",
+                }
+            )
 
         logger.debug(f"Fetched {len(results)} Seeking Alpha items for {symbol}")
         return results

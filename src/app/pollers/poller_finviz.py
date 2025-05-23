@@ -2,11 +2,11 @@
 
 import datetime
 import time
+
 import requests
 from bs4 import BeautifulSoup, Tag
-from typing import cast
 
-from app.config import get_symbols, get_poll_interval
+from app.config import get_poll_interval, get_symbols
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
@@ -66,11 +66,13 @@ def fetch_finviz_news(symbol: str) -> list[dict]:
                 logger.warning(f"Failed to parse timestamp for {symbol}: {timestamp_text} ({ve})")
                 continue
 
-            news.append({
-                "timestamp": dt.isoformat(),
-                "headline": headline_text,
-                "url": link,
-            })
+            news.append(
+                {
+                    "timestamp": dt.isoformat(),
+                    "headline": headline_text,
+                    "url": link,
+                }
+            )
 
     except Exception as e:
         logger.warning(f"Failed to fetch Finviz news for {symbol}: {e}")

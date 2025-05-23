@@ -17,6 +17,7 @@ def get_config_value(key: str, default: str | None = None) -> str:
     default.
 
     Args:
+    ----
       key(str): The configuration key to retrieve.
       default(Optional[str]): Fallback value if key is missing.
       key: str:
@@ -25,10 +26,13 @@ def get_config_value(key: str, default: str | None = None) -> str:
       default: str | None:  (Default value = None)
 
     Returns:
+    -------
       str: The resolved configuration value.
 
     Raises:
+    ------
       ValueError: If the key is missing and no default is provided.
+
     """
     val = _vault.get(key, os.getenv(key))
     if val is None:

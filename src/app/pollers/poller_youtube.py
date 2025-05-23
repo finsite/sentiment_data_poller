@@ -2,7 +2,6 @@
 
 """Polls YouTube for recent financial videos and transcripts per stock symbol."""
 
-import datetime
 import time
 from typing import Any, List
 
@@ -15,7 +14,7 @@ try:
 except ImportError:
     TranscriptsDisabled = Exception  # fallback if API changes
 
-from app.config import get_symbols, get_poll_interval, get_config_value
+from app.config import get_config_value, get_poll_interval, get_symbols
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
@@ -27,20 +26,24 @@ YOUTUBE_SEARCH_QUERY = "finance|stock|market|earnings"
 MAX_RESULTS = 5
 
 
-def fetch_youtube_transcripts(symbol: str) -> List[dict[str, Any]]:
+def fetch_youtube_transcripts(symbol: str) -> list[dict[str, Any]]:
     """Fetches recent YouTube videos for the symbol and attempts to get transcripts."""
-    videos: List[dict[str, Any]] = []
+    videos: list[dict[str, Any]] = []
 
     try:
         service = build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
 
-        search_response = service.search().list(
-            q=f"{symbol} {YOUTUBE_SEARCH_QUERY}",
-            part="snippet",
-            type="video",
-            maxResults=MAX_RESULTS,
-            order="date",
-        ).execute()
+        search_response = (
+            service.search()
+            .list(
+                q=f"{symbol} {YOUTUBE_SEARCH_QUERY}",
+                part="snippet",
+                type="video",
+                maxResults=MAX_RESULTS,
+                order="date",
+            )
+            .execute()
+        )
 
         for item in search_response.get("items", []):
             video_id = item["id"]["videoId"]
@@ -57,12 +60,14 @@ def fetch_youtube_transcripts(symbol: str) -> List[dict[str, Any]]:
                 logger.warning(f"Failed to fetch transcript for video {video_id}: {e}")
                 continue
 
-            videos.append({
-                "timestamp": published_at,
-                "headline": title,
-                "url": f"https://www.youtube.com/watch?v={video_id}",
-                "transcript": transcript_text,
-            })
+            videos.append(
+                {
+                    "timestamp": published_at,
+                    "headline": title,
+                    "url": f"https://www.youtube.com/watch?v={video_id}",
+                    "transcript": transcript_text,
+                }
+            )
 
     except HttpError as e:
         logger.error(f"YouTube API error: {e}")
@@ -92,7 +97,7 @@ def run_youtube_poller() -> None:
     interval = get_poll_interval()
 
     while True:
-        all_payloads: List[dict[str, Any]] = []
+        all_payloads: list[dict[str, Any]] = []
         symbols = get_symbols()
 
         for symbol in symbols:
