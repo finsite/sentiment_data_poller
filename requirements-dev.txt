@@ -68,6 +68,7 @@ filelock==3.18.0
 flake8==7.2.0
     # via -r requirements-dev.in
 fonttools==4.58.0
+fonttools==4.58.0
     # via matplotlib
 ghp-import==2.1.0
     # via mkdocs
@@ -229,7 +230,7 @@ pytest==8.3.5
     # via
     #   -r requirements-dev.in
     #   pytest-cov
-pytest-cov==4.1.0
+pytest-cov==6.1.1
     # via -r requirements-dev.in
 python-dateutil==2.9.0.post0
     # via

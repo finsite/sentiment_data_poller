@@ -8,9 +8,15 @@ beautifulsoup4==4.13.4
     # via
     #   -r requirements.in
     #   snscrape
+<<<<<<< HEAD
 boto3==1.38.22
     # via -r requirements.in
 botocore==1.38.22
+=======
+boto3==1.38.18
+    # via -r requirements.in
+botocore==1.38.18
+>>>>>>> ed1c404cc376891da88c7186c28c2a1aadb5a030
     # via
     #   boto3
     #   s3transfer
@@ -51,7 +57,7 @@ httplib2==0.22.0
     # via
     #   google-api-python-client
     #   google-auth-httplib2
-hvac==1.2.1
+hvac==2.3.0
     # via -r requirements.in
 idna==3.10
     # via requests
@@ -69,7 +75,7 @@ matplotlib==3.10.3
     # via -r requirements.in
 newsapi-python==0.2.7
     # via -r requirements.in
-numpy==1.26.4
+numpy==2.2.6
     # via
     #   -r requirements.in
     #   contourpy
@@ -90,7 +96,7 @@ pillow==11.2.1
     # via matplotlib
 praw==7.8.1
     # via -r requirements.in
-prawcore==2.4.0
+prawcore==3.0.2
     # via praw
 proto-plus==1.26.1
     # via google-api-core
@@ -150,7 +156,7 @@ snscrape==0.7.0.20230622
     # via -r requirements.in
 soupsieve==2.7
     # via beautifulsoup4
-tenacity==8.5.0
+tenacity==9.1.2
     # via -r requirements.in
 tweepy==4.15.0
     # via -r requirements.in
