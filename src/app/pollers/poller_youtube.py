@@ -3,7 +3,7 @@
 """Polls YouTube for recent financial videos and transcripts per stock symbol."""
 
 import time
-from typing import Any, List
+from typing import Any
 
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
