@@ -1,4 +1,13 @@
-## Unreleased
+## v0.4.0 (2025-05-23)
+
+### Feat
+
+- **versioning**: enforce version consistency across pyproject.toml, __init__.py, and changelog
+
+### Fix
+
+- **poller**: integrate updates
+- **poller**: integrate updates
 
 ## v0.3.4 (2025-05-12)
 
