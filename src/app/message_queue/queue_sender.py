@@ -40,19 +40,29 @@ if QUEUE_TYPE == "sqs":
 
 def publish_to_queue(payload: list[dict]) -> None:
     """Publishes a list of messages to the configured message queue.
-    
+
     Args:
     ----
       payload(list[dict]): List of JSON-serializable dictionaries.
       payload: list[dict]:
       payload: list[dict]:
-    
+
     Returns:
     -------
 
-    :param payload: list[dict]:
-    :param payload: list[dict]:
-    :param payload: list[dict]: 
+    Parameters
+    ----------
+    payload :
+        list[dict]:
+    payload :
+        list[dict]:
+    payload :
+        list[dict]:
+    payload: list[dict] :
+
+
+    Returns
+    -------
 
     """
     for message in payload:
@@ -66,18 +76,28 @@ def publish_to_queue(payload: list[dict]) -> None:
 
 def _send_to_rabbitmq(data: dict) -> None:
     """Helper to send a message to RabbitMQ.
-    
+
     Args:
     ----
       data: dict:
       data: dict:
-    
+
     Returns:
     -------
 
-    :param data: dict:
-    :param data: dict:
-    :param data: dict: 
+    Parameters
+    ----------
+    data :
+        dict:
+    data :
+        dict:
+    data :
+        dict:
+    data: dict :
+
+
+    Returns
+    -------
 
     """
     try:
@@ -104,18 +124,28 @@ def _send_to_rabbitmq(data: dict) -> None:
 
 def _send_to_sqs(data: dict) -> None:
     """Helper to send a message to AWS SQS.
-    
+
     Args:
     ----
       data: dict:
       data: dict:
-    
+
     Returns:
     -------
 
-    :param data: dict:
-    :param data: dict:
-    :param data: dict: 
+    Parameters
+    ----------
+    data :
+        dict:
+    data :
+        dict:
+    data :
+        dict:
+    data: dict :
+
+
+    Returns
+    -------
 
     """
     if not sqs_client or not SQS_QUEUE_URL:

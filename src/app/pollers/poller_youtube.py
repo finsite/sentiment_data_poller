@@ -29,9 +29,19 @@ MAX_RESULTS = 5
 def fetch_youtube_transcripts(symbol: str) -> list[dict[str, Any]]:
     """Fetches recent YouTube videos for the symbol and attempts to get transcripts.
 
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str: 
+    Parameters
+    ----------
+    symbol :
+        str:
+    symbol :
+        str:
+    symbol :
+        str:
+    symbol: str :
+
+
+    Returns
+    -------
 
     """
     videos: list[dict[str, Any]] = []
@@ -86,14 +96,31 @@ def fetch_youtube_transcripts(symbol: str) -> list[dict[str, Any]]:
 def build_payload(symbol: str, video: dict[str, Any]) -> dict[str, Any]:
     """
 
-    :param symbol: str:
-    :param video: dict[str:
-    :param Any: param symbol: str:
-    :param video: dict[str:
-    :param Any: 
-    :param symbol: str: 
-    :param video: dict[str: 
-    :param Any]: 
+    Parameters
+    ----------
+    symbol :
+        str:
+    video :
+        dict[str:
+    Any :
+        param symbol: str:
+    video :
+        dict[str:
+    Any :
+        param symbol: str:
+    video :
+        dict[str:
+    Any :
+
+    symbol: str :
+
+    video: dict[str :
+
+    Any] :
+
+
+    Returns
+    -------
 
     """
     return {

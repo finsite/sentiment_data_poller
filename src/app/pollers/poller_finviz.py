@@ -18,9 +18,19 @@ BASE_URL = "https://finviz.com/quote.ashx?t={}"
 def fetch_finviz_news(symbol: str) -> list[dict]:
     """Scrapes the Finviz news table for a given symbol.
 
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str: 
+    Parameters
+    ----------
+    symbol :
+        str:
+    symbol :
+        str:
+    symbol :
+        str:
+    symbol: str :
+
+
+    Returns
+    -------
 
     """
     news: list[dict] = []
@@ -89,12 +99,27 @@ def fetch_finviz_news(symbol: str) -> list[dict]:
 def build_payload(symbol: str, article: dict) -> dict:
     """
 
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: str: 
-    :param article: dict: 
+    Parameters
+    ----------
+    symbol :
+        str:
+    article :
+        dict:
+    symbol :
+        str:
+    article :
+        dict:
+    symbol :
+        str:
+    article :
+        dict:
+    symbol: str :
+
+    article: dict :
+
+
+    Returns
+    -------
 
     """
     return {
