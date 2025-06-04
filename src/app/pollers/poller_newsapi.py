@@ -45,18 +45,15 @@ def fetch_newsapi_articles(symbol: str, api_key: str) -> list[dict]:
     :param api_key: str:
     :param symbol: str:
     :param api_key: str:
-    :param symbol: 
-    :type symbol: str :
-    :param api_key: 
-    :type api_key: str :
-    :param symbol: 
-    :type symbol: str :
-    :param api_key: 
-    :type api_key: str :
+    :param symbol: type symbol: str :
+    :param api_key: type api_key: str :
+    :param symbol: type symbol: str :
+    :param api_key: type api_key: str :
+    :param symbol: str:
+    :param api_key: str:
     :param symbol: str: 
     :param api_key: str: 
 
-    
     """
     rate_limiter.acquire("NewsAPIPoller")
     try:
@@ -85,18 +82,15 @@ def build_payload(symbol: str, article: dict) -> dict:
     :param article: dict:
     :param symbol: str:
     :param article: dict:
-    :param symbol: 
-    :type symbol: str :
-    :param article: 
-    :type article: dict :
-    :param symbol: 
-    :type symbol: str :
-    :param article: 
-    :type article: dict :
+    :param symbol: type symbol: str :
+    :param article: type article: dict :
+    :param symbol: type symbol: str :
+    :param article: type article: dict :
+    :param symbol: str:
+    :param article: dict:
     :param symbol: str: 
     :param article: dict: 
 
-    
     """
     return {
         "symbol": symbol,

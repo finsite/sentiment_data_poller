@@ -30,15 +30,11 @@ def validate_data(data: dict[str, Any]) -> bool:
     :param data: dict[str:
     :param Any: param data: dict[str:
     :param Any: param data: dict[str:
-    :param Any: 
-    :param data: 
-    :type data: dict[str :
-    :param Any]: 
-    :param data: 
-    :type data: dict[str :
-    :param data: dict[str: 
-
-    Notes
+    :param Any: param data:
+    :param Any: param data:
+    :param data: dict[str:
+    
+    Notes:
     -----
     The function logs an error message for each validation failure.
     
@@ -46,6 +42,9 @@ def validate_data(data: dict[str, Any]) -> bool:
     ----
       data: dict[str:
       Any]:
+    :param data: dict[str: 
+    :param Any]: 
+
     """
     required_keys: set[str] = {"symbol", "price", "volume", "timestamp"}
 
@@ -95,13 +94,11 @@ def _validate_symbol(symbol: str) -> bool:
     :param symbol: str:
     :param symbol: str:
     :param symbol: str:
-    :param symbol: 
-    :type symbol: str :
-    :param symbol: 
-    :type symbol: str :
-    :param symbol: str: 
-
-    Notes
+    :param symbol: type symbol: str :
+    :param symbol: type symbol: str :
+    :param symbol: str:
+    
+    Notes:
     -----
     The function checks the provided symbol to ensure it is a string and contains
     only alphabetical characters. The function logs an error message if the
@@ -110,6 +107,8 @@ def _validate_symbol(symbol: str) -> bool:
     Args:
     ----
       symbol: str:
+    :param symbol: str: 
+
     """
     if not isinstance(symbol, str) or not symbol.isalpha():
         logger.error(f"Invalid symbol format: {symbol}")
@@ -128,13 +127,11 @@ def _validate_price(price: Any) -> bool:
     :param price: Any:
     :param price: Any:
     :param price: Any:
-    :param price: 
-    :type price: Any :
-    :param price: 
-    :type price: Any :
-    :param price: Any: 
-
-    Notes
+    :param price: type price: Any :
+    :param price: type price: Any :
+    :param price: Any:
+    
+    Notes:
     -----
         A non-negative number is used to represent the price of a stock quote.
         The function checks the provided price to ensure it is an integer or
@@ -144,6 +141,8 @@ def _validate_price(price: Any) -> bool:
     Args:
     ----
       price: Any:
+    :param price: Any: 
+
     """
     # Check if the price is an integer or float and if it is non-negative
     if not isinstance(price, (int, float)) or price < 0:
@@ -162,13 +161,11 @@ def _validate_volume(volume: Any) -> bool:
     :param volume: Any:
     :param volume: Any:
     :param volume: Any:
-    :param volume: 
-    :type volume: Any :
-    :param volume: 
-    :type volume: Any :
-    :param volume: Any: 
-
-    Notes
+    :param volume: type volume: Any :
+    :param volume: type volume: Any :
+    :param volume: Any:
+    
+    Notes:
     -----
         A non-negative integer is used to represent the volume of a stock quote.
         The function checks that the provided volume is of type int and if it
@@ -177,6 +174,8 @@ def _validate_volume(volume: Any) -> bool:
     Args:
     ----
       volume: Any:
+    :param volume: Any: 
+
     """
     if not isinstance(volume, int) or volume < 0:
         logger.error(f"Invalid volume format: {volume}")
@@ -197,13 +196,11 @@ def _validate_timestamp(timestamp: Any) -> bool:
     :param timestamp: Any:
     :param timestamp: Any:
     :param timestamp: Any:
-    :param timestamp: 
-    :type timestamp: Any :
-    :param timestamp: 
-    :type timestamp: Any :
+    :param timestamp: type timestamp: Any :
+    :param timestamp: type timestamp: Any :
+    :param timestamp: Any:
     :param timestamp: Any: 
 
-    
     """
     # Ensure the timestamp is a string
     if not isinstance(timestamp, str):

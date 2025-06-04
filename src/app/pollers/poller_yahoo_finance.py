@@ -22,13 +22,11 @@ def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
     :param symbol: str:
     :param symbol: str:
     :param symbol: str:
-    :param symbol: 
-    :type symbol: str :
-    :param symbol: 
-    :type symbol: str :
+    :param symbol: type symbol: str :
+    :param symbol: type symbol: str :
+    :param symbol: str:
     :param symbol: str: 
 
-    
     """
     try:
         url = YAHOO_FINANCE_NEWS_URL.format(symbol=symbol)
@@ -73,20 +71,16 @@ def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
     :param article: dict[str:
     :param Any: param symbol: str:
     :param article: dict[str:
-    :param Any: 
-    :param symbol: 
-    :type symbol: str :
-    :param article: 
-    :type article: dict[str :
-    :param Any]: 
-    :param symbol: 
-    :type symbol: str :
-    :param article: 
-    :type article: dict[str :
+    :param Any: param symbol:
+    :param article: type article: dict[str :
+    :param Any: param symbol:
+    :param article: type article: dict[str :
+    :param symbol: str:
+    :param article: dict[str:
     :param symbol: str: 
     :param article: dict[str: 
+    :param Any]: 
 
-    
     """
     return {
         "symbol": symbol,
