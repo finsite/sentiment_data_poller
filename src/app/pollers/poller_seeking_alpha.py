@@ -16,7 +16,11 @@ BASE_RSS_URL = "https://seekingalpha.com/api/sa/combined/{symbol}.xml"
 
 
 def fetch_seeking_alpha_feed(symbol: str) -> list[dict]:
-    """Fetch and parse Seeking Alpha RSS feed for the given symbol."""
+    """Fetch and parse Seeking Alpha RSS feed for the given symbol.
+
+    :param symbol: str: 
+
+    """
     try:
         encoded_symbol = urllib.parse.quote_plus(symbol)
         url = BASE_RSS_URL.format(symbol=encoded_symbol)
@@ -43,6 +47,12 @@ def fetch_seeking_alpha_feed(symbol: str) -> list[dict]:
 
 
 def build_payload(symbol: str, article: dict) -> dict:
+    """
+
+    :param symbol: str: 
+    :param article: dict: 
+
+    """
     return {
         "symbol": symbol,
         "timestamp": article["timestamp"],

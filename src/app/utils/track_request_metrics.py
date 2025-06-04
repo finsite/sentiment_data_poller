@@ -17,7 +17,7 @@ def track_request_metrics(
     success: bool = True,
 ) -> None:
     """Tracks metrics for individual API requests.
-
+    
     Args:
     ----
       symbol(str): The stock symbol for the request.
@@ -32,10 +32,16 @@ def track_request_metrics(
       rate_limit: int:
       time_window: float:
       success: bool:  (Default value = True)
-
+    
     Returns:
     -------
 
+    :param symbol: str: 
+    :param rate_limit: int: 
+    :param time_window: float: 
+    :param success: bool:  (Default value = True)
+
+    
     """
     status = "success" if success else "failure"
     message = (

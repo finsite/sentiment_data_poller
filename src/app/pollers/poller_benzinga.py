@@ -16,7 +16,11 @@ BENZINGA_NEWS_URL = "https://api.benzinga.com/api/v2/news"
 
 
 def fetch_benzinga_news(symbol: str) -> list[dict]:
-    """Fetches news from Benzinga's Newswire API for a given symbol."""
+    """Fetches news from Benzinga's Newswire API for a given symbol.
+
+    :param symbol: str: 
+
+    """
     try:
         params = {
             "token": BENZINGA_API_KEY,
@@ -33,7 +37,12 @@ def fetch_benzinga_news(symbol: str) -> list[dict]:
 
 
 def build_payload(symbol: str, item: dict) -> dict:
-    """Standardizes Benzinga API article structure for queue publication."""
+    """Standardizes Benzinga API article structure for queue publication.
+
+    :param symbol: str: 
+    :param item: dict: 
+
+    """
     return {
         "symbol": symbol,
         "timestamp": item.get("created", datetime.datetime.utcnow().isoformat()),

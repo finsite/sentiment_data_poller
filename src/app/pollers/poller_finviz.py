@@ -16,7 +16,11 @@ BASE_URL = "https://finviz.com/quote.ashx?t={}"
 
 
 def fetch_finviz_news(symbol: str) -> list[dict]:
-    """Scrapes the Finviz news table for a given symbol."""
+    """Scrapes the Finviz news table for a given symbol.
+
+    :param symbol: str: 
+
+    """
     news: list[dict] = []
 
     try:
@@ -81,6 +85,12 @@ def fetch_finviz_news(symbol: str) -> list[dict]:
 
 
 def build_payload(symbol: str, article: dict) -> dict:
+    """
+
+    :param symbol: str: 
+    :param article: dict: 
+
+    """
     return {
         "symbol": symbol,
         "timestamp": article["timestamp"],

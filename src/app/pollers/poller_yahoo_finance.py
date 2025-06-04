@@ -17,7 +17,11 @@ YAHOO_FINANCE_NEWS_URL = "https://finance.yahoo.com/quote/{symbol}?p={symbol}"
 
 
 def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
-    """Scrapes Yahoo Finance for news articles related to the stock symbol."""
+    """Scrapes Yahoo Finance for news articles related to the stock symbol.
+
+    :param symbol: str: 
+
+    """
     try:
         url = YAHOO_FINANCE_NEWS_URL.format(symbol=symbol)
         headers = {"User-Agent": "Mozilla/5.0"}
@@ -53,6 +57,13 @@ def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
 
 
 def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
+    """
+
+    :param symbol: str: 
+    :param article: dict[str: 
+    :param Any]: 
+
+    """
     return {
         "symbol": symbol,
         "timestamp": article["timestamp"],

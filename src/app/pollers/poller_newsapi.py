@@ -37,7 +37,12 @@ rate_limiter = RateLimiter(max_requests=FILL_RATE, time_window=CAPACITY)
     retry=retry_if_exception_type(requests.RequestException),
 )
 def fetch_newsapi_articles(symbol: str, api_key: str) -> list[dict]:
-    """Fetches NewsAPI articles for a given stock symbol."""
+    """Fetches NewsAPI articles for a given stock symbol.
+
+    :param symbol: str: 
+    :param api_key: str: 
+
+    """
     rate_limiter.acquire("NewsAPIPoller")
     try:
         logger.debug(f"Querying NewsAPI for: {symbol}")
@@ -57,6 +62,12 @@ def fetch_newsapi_articles(symbol: str, api_key: str) -> list[dict]:
 
 
 def build_payload(symbol: str, article: dict) -> dict:
+    """
+
+    :param symbol: str: 
+    :param article: dict: 
+
+    """
     return {
         "symbol": symbol,
         "timestamp": article.get("publishedAt", datetime.datetime.utcnow().isoformat()),
