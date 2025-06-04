@@ -36,6 +36,8 @@ def request_with_timeout(url: str, timeout: int = 10) -> dict | None:
     :type timeout: int :
     :param url: str:
     :param timeout: int:  (Default value = 10)
+    :param url: str:
+    :param timeout: int:  (Default value = 10)
     :param url: str: 
     :param timeout: int:  (Default value = 10)
 

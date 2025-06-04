@@ -25,6 +25,7 @@ def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
     :param symbol: type symbol: str :
     :param symbol: type symbol: str :
     :param symbol: str:
+    :param symbol: str:
     :param symbol: str: 
 
     """
@@ -77,6 +78,9 @@ def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
     :param article: type article: dict[str :
     :param symbol: str:
     :param article: dict[str:
+    :param symbol: str:
+    :param article: dict[str:
+    :param Any: 
     :param symbol: str: 
     :param article: dict[str: 
     :param Any]: 
