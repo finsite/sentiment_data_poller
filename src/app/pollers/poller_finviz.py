@@ -26,7 +26,7 @@ def fetch_finviz_news(symbol: str) -> list[dict]:
     :param symbol: str:
     :param symbol: str:
     :param symbol: str:
-    :param symbol: str: 
+    :param symbol: str:
 
     """
     news: list[dict] = []
@@ -93,9 +93,7 @@ def fetch_finviz_news(symbol: str) -> list[dict]:
 
 
 def build_payload(symbol: str, article: dict) -> dict:
-    """
-
-    :param symbol: str:
+    """:param symbol: str:
     :param article: dict:
     :param symbol: str:
     :param article: dict:
@@ -111,8 +109,8 @@ def build_payload(symbol: str, article: dict) -> dict:
     :param article: dict:
     :param symbol: str:
     :param article: dict:
-    :param symbol: str: 
-    :param article: dict: 
+    :param symbol: str:
+    :param article: dict:
 
     """
     return {

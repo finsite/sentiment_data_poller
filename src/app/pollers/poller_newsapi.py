@@ -55,8 +55,8 @@ def fetch_newsapi_articles(symbol: str, api_key: str) -> list[dict]:
     :param api_key: str:
     :param symbol: str:
     :param api_key: str:
-    :param symbol: str: 
-    :param api_key: str: 
+    :param symbol: str:
+    :param api_key: str:
 
     """
     rate_limiter.acquire("NewsAPIPoller")
@@ -78,9 +78,7 @@ def fetch_newsapi_articles(symbol: str, api_key: str) -> list[dict]:
 
 
 def build_payload(symbol: str, article: dict) -> dict:
-    """
-
-    :param symbol: str:
+    """:param symbol: str:
     :param article: dict:
     :param symbol: str:
     :param article: dict:
@@ -96,8 +94,8 @@ def build_payload(symbol: str, article: dict) -> dict:
     :param article: dict:
     :param symbol: str:
     :param article: dict:
-    :param symbol: str: 
-    :param article: dict: 
+    :param symbol: str:
+    :param article: dict:
 
     """
     return {
