@@ -20,6 +20,7 @@ def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
     """Scrapes Yahoo Finance for news articles related to the stock symbol.
 
     :param symbol: str:
+    :param symbol: str:
     :param symbol: str: 
 
     """
@@ -61,6 +62,8 @@ def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
     """
 
     :param symbol: str:
+    :param article: dict[str:
+    :param Any: param symbol: str:
     :param article: dict[str:
     :param Any: 
     :param symbol: str: 

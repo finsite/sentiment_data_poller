@@ -19,6 +19,7 @@ def fetch_finviz_news(symbol: str) -> list[dict]:
     """Scrapes the Finviz news table for a given symbol.
 
     :param symbol: str:
+    :param symbol: str:
     :param symbol: str: 
 
     """
@@ -88,6 +89,8 @@ def fetch_finviz_news(symbol: str) -> list[dict]:
 def build_payload(symbol: str, article: dict) -> dict:
     """
 
+    :param symbol: str:
+    :param article: dict:
     :param symbol: str:
     :param article: dict:
     :param symbol: str: 

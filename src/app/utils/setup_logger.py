@@ -42,6 +42,8 @@ def setup_logger(name: str | None = None, level: int = logging.INFO) -> logging.
     :param level: int:  (Default value = logging.INFO)
     :param name: str | None:  (Default value = None)
     :param level: int:  (Default value = logging.INFO)
+    :param name: str | None:  (Default value = None)
+    :param level: int:  (Default value = logging.INFO)
 
     """
     logger_name = name or "poller"

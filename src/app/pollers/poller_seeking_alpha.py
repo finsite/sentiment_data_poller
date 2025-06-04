@@ -19,6 +19,7 @@ def fetch_seeking_alpha_feed(symbol: str) -> list[dict]:
     """Fetch and parse Seeking Alpha RSS feed for the given symbol.
 
     :param symbol: str:
+    :param symbol: str:
     :param symbol: str: 
 
     """
@@ -50,6 +51,8 @@ def fetch_seeking_alpha_feed(symbol: str) -> list[dict]:
 def build_payload(symbol: str, article: dict) -> dict:
     """
 
+    :param symbol: str:
+    :param article: dict:
     :param symbol: str:
     :param article: dict:
     :param symbol: str: 

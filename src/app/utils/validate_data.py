@@ -48,6 +48,7 @@ def validate_data(data: dict[str, Any]) -> bool:
     -------
 
     :param data: dict[str:
+    :param Any: param data: dict[str:
     :param Any: 
     :param data: dict[str: 
     :param Any]: 
@@ -116,6 +117,7 @@ def _validate_symbol(symbol: str) -> bool:
     -------
 
     :param symbol: str:
+    :param symbol: str:
     :param symbol: str: 
 
     """
@@ -151,6 +153,7 @@ def _validate_price(price: Any) -> bool:
     Returns:
     -------
 
+    :param price: Any:
     :param price: Any:
     :param price: Any: 
 
@@ -194,6 +197,7 @@ def _validate_volume(volume: Any) -> bool:
     -------
 
     :param volume: Any:
+    :param volume: Any:
     :param volume: Any: 
 
     """
@@ -231,6 +235,7 @@ def _validate_timestamp(timestamp: Any) -> bool:
     Returns:
     -------
 
+    :param timestamp: Any:
     :param timestamp: Any:
     :param timestamp: Any: 
 
