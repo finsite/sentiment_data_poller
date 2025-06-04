@@ -19,23 +19,16 @@ GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&
 def fetch_google_news(symbol: str) -> list[dict[str, Any]]:
     """Fetches news headlines from Google News RSS for a given stock symbol.
 
-    Parameters
-    ----------
-    symbol :
-        str:
-    symbol :
-        str:
-    symbol :
-        str:
-    symbol : str :
+    :param symbol: str:
+    :param symbol: str:
+    :param symbol: str:
+    :param symbol: 
+    :type symbol: str :
+    :param symbol: 
+    :type symbol: str :
+    :param symbol: str: 
 
-    symbol: str :
-
-
-    Returns
-    -------
-
-
+    
     """
     encoded_symbol = urllib.parse.quote_plus(symbol)
     url = GOOGLE_NEWS_RSS.format(symbol=encoded_symbol)
@@ -75,37 +68,26 @@ def fetch_google_news(symbol: str) -> list[dict[str, Any]]:
 def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
     """
 
-    Parameters
-    ----------
-    symbol :
-        str:
-    article :
-        dict[str:
-    Any :
-        param symbol: str:
-    article :
-        dict[str:
-    Any :
-        param symbol: str:
-    article :
-        dict[str:
-    Any :
+    :param symbol: str:
+    :param article: dict[str:
+    :param Any: param symbol: str:
+    :param article: dict[str:
+    :param Any: param symbol: str:
+    :param article: dict[str:
+    :param Any: 
+    :param symbol: 
+    :type symbol: str :
+    :param article: 
+    :type article: dict[str :
+    :param Any]: 
+    :param symbol: 
+    :type symbol: str :
+    :param article: 
+    :type article: dict[str :
+    :param symbol: str: 
+    :param article: dict[str: 
 
-    symbol : str :
-
-    article : dict[str :
-
-    Any] :
-
-    symbol: str :
-
-    article: dict[str :
-
-
-    Returns
-    -------
-
-
+    
     """
     return {
         "symbol": symbol,

@@ -17,23 +17,16 @@ API_URL = "https://api.stocktwits.com/api/2/streams/symbol/{}.json"
 def fetch_stocktwits_messages(symbol: str) -> list[dict]:
     """Fetch messages for a symbol from Stocktwits.
 
-    Parameters
-    ----------
-    symbol :
-        str:
-    symbol :
-        str:
-    symbol :
-        str:
-    symbol : str :
+    :param symbol: str:
+    :param symbol: str:
+    :param symbol: str:
+    :param symbol: 
+    :type symbol: str :
+    :param symbol: 
+    :type symbol: str :
+    :param symbol: str: 
 
-    symbol: str :
-
-
-    Returns
-    -------
-
-
+    
     """
     try:
         url = API_URL.format(symbol)
@@ -50,33 +43,24 @@ def fetch_stocktwits_messages(symbol: str) -> list[dict]:
 def build_payload(symbol: str, msg: dict) -> dict:
     """Constructs a standardized message from a Stocktwits post.
 
-    Parameters
-    ----------
-    symbol :
-        str:
-    msg :
-        dict:
-    symbol :
-        str:
-    msg :
-        dict:
-    symbol :
-        str:
-    msg :
-        dict:
-    symbol : str :
+    :param symbol: str:
+    :param msg: dict:
+    :param symbol: str:
+    :param msg: dict:
+    :param symbol: str:
+    :param msg: dict:
+    :param symbol: 
+    :type symbol: str :
+    :param msg: 
+    :type msg: dict :
+    :param symbol: 
+    :type symbol: str :
+    :param msg: 
+    :type msg: dict :
+    :param symbol: str: 
+    :param msg: dict: 
 
-    msg : dict :
-
-    symbol: str :
-
-    msg: dict :
-
-
-    Returns
-    -------
-
-
+    
     """
     return {
         "symbol": symbol,

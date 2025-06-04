@@ -19,23 +19,16 @@ YAHOO_FINANCE_NEWS_URL = "https://finance.yahoo.com/quote/{symbol}?p={symbol}"
 def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
     """Scrapes Yahoo Finance for news articles related to the stock symbol.
 
-    Parameters
-    ----------
-    symbol :
-        str:
-    symbol :
-        str:
-    symbol :
-        str:
-    symbol : str :
+    :param symbol: str:
+    :param symbol: str:
+    :param symbol: str:
+    :param symbol: 
+    :type symbol: str :
+    :param symbol: 
+    :type symbol: str :
+    :param symbol: str: 
 
-    symbol: str :
-
-
-    Returns
-    -------
-
-
+    
     """
     try:
         url = YAHOO_FINANCE_NEWS_URL.format(symbol=symbol)
@@ -74,37 +67,26 @@ def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
 def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
     """
 
-    Parameters
-    ----------
-    symbol :
-        str:
-    article :
-        dict[str:
-    Any :
-        param symbol: str:
-    article :
-        dict[str:
-    Any :
-        param symbol: str:
-    article :
-        dict[str:
-    Any :
+    :param symbol: str:
+    :param article: dict[str:
+    :param Any: param symbol: str:
+    :param article: dict[str:
+    :param Any: param symbol: str:
+    :param article: dict[str:
+    :param Any: 
+    :param symbol: 
+    :type symbol: str :
+    :param article: 
+    :type article: dict[str :
+    :param Any]: 
+    :param symbol: 
+    :type symbol: str :
+    :param article: 
+    :type article: dict[str :
+    :param symbol: str: 
+    :param article: dict[str: 
 
-    symbol : str :
-
-    article : dict[str :
-
-    Any] :
-
-    symbol: str :
-
-    article: dict[str :
-
-
-    Returns
-    -------
-
-
+    
     """
     return {
         "symbol": symbol,

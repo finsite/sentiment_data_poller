@@ -15,57 +15,35 @@ logger = setup_logger(__name__)
 
 def track_polling_metrics(status: Literal["success", "failure"], source: str, symbol: str) -> None:
     """Tracks metrics for polling operations.
-
+    
     Args:
     ----
         status (Literal["success", "failure"]): The status of the operation ('success' or 'failure').
         source (str): The source of the polling data (e.g., 'yfinance', 'finnhub').
         symbol (str): The symbol for which polling was performed.
 
-    Parameters
-    ----------
-    status :
-        Literal["success":
-    status :
-        Literal["success":
-    status :
-        Literal["success":
-    status : Literal["success" :
+    :param status: Literal["success":
+    :param status: Literal["success":
+    :param status: Literal["success":
+    :param status: 
+    :type status: Literal["success" :
+    :param "failure"]: 
+    :param source: 
+    :type source: str :
+    :param symbol: 
+    :type symbol: str :
+    :param status: 
+    :type status: Literal["success" :
+    :param source: 
+    :type source: str :
+    :param symbol: 
+    :type symbol: str :
+    :param status: Literal["success": 
+    :param source: str: 
+    :param symbol: str: 
+    :returns: Args->
 
-    "failure"] :
-
-    source : str :
-
-    symbol : str :
-
-    status: Literal["success" :
-
-    source: str :
-
-    symbol: str :
-
-
-    Returns
-    -------
-    Args :
-
-    ----
-        status: Literal["success":
-        "failure"]:
-        source: str:
-        symbol: str:
-
-    Raises
-    ------
-    Args
-
-    ----
-        status: Literal["success":
-        "failure"]:
-        source: str:
-        symbol: str:
-
-
+    
     """
     # Validate status
     if status not in {"success", "failure"}:

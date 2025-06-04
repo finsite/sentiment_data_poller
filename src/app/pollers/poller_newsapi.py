@@ -39,33 +39,24 @@ rate_limiter = RateLimiter(max_requests=FILL_RATE, time_window=CAPACITY)
 def fetch_newsapi_articles(symbol: str, api_key: str) -> list[dict]:
     """Fetches NewsAPI articles for a given stock symbol.
 
-    Parameters
-    ----------
-    symbol :
-        str:
-    api_key :
-        str:
-    symbol :
-        str:
-    api_key :
-        str:
-    symbol :
-        str:
-    api_key :
-        str:
-    symbol : str :
+    :param symbol: str:
+    :param api_key: str:
+    :param symbol: str:
+    :param api_key: str:
+    :param symbol: str:
+    :param api_key: str:
+    :param symbol: 
+    :type symbol: str :
+    :param api_key: 
+    :type api_key: str :
+    :param symbol: 
+    :type symbol: str :
+    :param api_key: 
+    :type api_key: str :
+    :param symbol: str: 
+    :param api_key: str: 
 
-    api_key : str :
-
-    symbol: str :
-
-    api_key: str :
-
-
-    Returns
-    -------
-
-
+    
     """
     rate_limiter.acquire("NewsAPIPoller")
     try:
@@ -88,33 +79,24 @@ def fetch_newsapi_articles(symbol: str, api_key: str) -> list[dict]:
 def build_payload(symbol: str, article: dict) -> dict:
     """
 
-    Parameters
-    ----------
-    symbol :
-        str:
-    article :
-        dict:
-    symbol :
-        str:
-    article :
-        dict:
-    symbol :
-        str:
-    article :
-        dict:
-    symbol : str :
+    :param symbol: str:
+    :param article: dict:
+    :param symbol: str:
+    :param article: dict:
+    :param symbol: str:
+    :param article: dict:
+    :param symbol: 
+    :type symbol: str :
+    :param article: 
+    :type article: dict :
+    :param symbol: 
+    :type symbol: str :
+    :param article: 
+    :type article: dict :
+    :param symbol: str: 
+    :param article: dict: 
 
-    article : dict :
-
-    symbol: str :
-
-    article: dict :
-
-
-    Returns
-    -------
-
-
+    
     """
     return {
         "symbol": symbol,

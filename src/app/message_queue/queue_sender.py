@@ -40,30 +40,23 @@ if QUEUE_TYPE == "sqs":
 
 def publish_to_queue(payload: list[dict]) -> None:
     """Publishes a list of messages to the configured message queue.
-
+    
     Args:
     ----
       payload(list[dict]): List of JSON-serializable dictionaries.
       payload: list[dict]:
       payload: list[dict]:
 
-    Parameters
-    ----------
-    payload :
-        list[dict]:
-    payload :
-        list[dict]:
-    payload :
-        list[dict]:
-    payload : list[dict] :
+    :param payload: list[dict]:
+    :param payload: list[dict]:
+    :param payload: list[dict]:
+    :param payload: 
+    :type payload: list[dict] :
+    :param payload: 
+    :type payload: list[dict] :
+    :param payload: list[dict]: 
 
-    payload: list[dict] :
-
-
-    Returns
-    -------
-
-
+    
     """
     for message in payload:
         if QUEUE_TYPE == "rabbitmq":
@@ -76,29 +69,22 @@ def publish_to_queue(payload: list[dict]) -> None:
 
 def _send_to_rabbitmq(data: dict) -> None:
     """Helper to send a message to RabbitMQ.
-
+    
     Args:
     ----
       data: dict:
       data: dict:
 
-    Parameters
-    ----------
-    data :
-        dict:
-    data :
-        dict:
-    data :
-        dict:
-    data : dict :
+    :param data: dict:
+    :param data: dict:
+    :param data: dict:
+    :param data: 
+    :type data: dict :
+    :param data: 
+    :type data: dict :
+    :param data: dict: 
 
-    data: dict :
-
-
-    Returns
-    -------
-
-
+    
     """
     try:
         credentials = pika.PlainCredentials(RABBITMQ_USER, RABBITMQ_PASSWORD)
@@ -124,29 +110,22 @@ def _send_to_rabbitmq(data: dict) -> None:
 
 def _send_to_sqs(data: dict) -> None:
     """Helper to send a message to AWS SQS.
-
+    
     Args:
     ----
       data: dict:
       data: dict:
 
-    Parameters
-    ----------
-    data :
-        dict:
-    data :
-        dict:
-    data :
-        dict:
-    data : dict :
+    :param data: dict:
+    :param data: dict:
+    :param data: dict:
+    :param data: 
+    :type data: dict :
+    :param data: 
+    :type data: dict :
+    :param data: dict: 
 
-    data: dict :
-
-
-    Returns
-    -------
-
-
+    
     """
     if not sqs_client or not SQS_QUEUE_URL:
         logger.error("SQS client is not initialized or missing SQS_QUEUE_URL")

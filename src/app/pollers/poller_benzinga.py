@@ -18,23 +18,16 @@ BENZINGA_NEWS_URL = "https://api.benzinga.com/api/v2/news"
 def fetch_benzinga_news(symbol: str) -> list[dict]:
     """Fetches news from Benzinga's Newswire API for a given symbol.
 
-    Parameters
-    ----------
-    symbol :
-        str:
-    symbol :
-        str:
-    symbol :
-        str:
-    symbol : str :
+    :param symbol: str:
+    :param symbol: str:
+    :param symbol: str:
+    :param symbol: 
+    :type symbol: str :
+    :param symbol: 
+    :type symbol: str :
+    :param symbol: str: 
 
-    symbol: str :
-
-
-    Returns
-    -------
-
-
+    
     """
     try:
         params = {
@@ -54,33 +47,24 @@ def fetch_benzinga_news(symbol: str) -> list[dict]:
 def build_payload(symbol: str, item: dict) -> dict:
     """Standardizes Benzinga API article structure for queue publication.
 
-    Parameters
-    ----------
-    symbol :
-        str:
-    item :
-        dict:
-    symbol :
-        str:
-    item :
-        dict:
-    symbol :
-        str:
-    item :
-        dict:
-    symbol : str :
+    :param symbol: str:
+    :param item: dict:
+    :param symbol: str:
+    :param item: dict:
+    :param symbol: str:
+    :param item: dict:
+    :param symbol: 
+    :type symbol: str :
+    :param item: 
+    :type item: dict :
+    :param symbol: 
+    :type symbol: str :
+    :param item: 
+    :type item: dict :
+    :param symbol: str: 
+    :param item: dict: 
 
-    item : dict :
-
-    symbol: str :
-
-    item: dict :
-
-
-    Returns
-    -------
-
-
+    
     """
     return {
         "symbol": symbol,

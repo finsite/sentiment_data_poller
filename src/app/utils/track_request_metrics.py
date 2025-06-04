@@ -17,7 +17,7 @@ def track_request_metrics(
     success: bool = True,
 ) -> None:
     """Tracks metrics for individual API requests.
-
+    
     Args:
     ----
       symbol(str): The stock symbol for the request.
@@ -33,53 +33,40 @@ def track_request_metrics(
       time_window: float:
       success: bool:  (Default value = True)
 
-    Parameters
-    ----------
-    symbol :
-        str:
-    rate_limit :
-        int:
-    time_window :
-        float:
-    success :
-        bool:  (Default value = True)
-    symbol :
-        str:
-    rate_limit :
-        int:
-    time_window :
-        float:
-    success :
-        bool:  (Default value = True)
-    symbol :
-        str:
-    rate_limit :
-        int:
-    time_window :
-        float:
-    success :
-        bool:  (Default value = True)
-    symbol : str :
+    :param symbol: str:
+    :param rate_limit: int:
+    :param time_window: float:
+    :param success: bool:  (Default value = True)
+    :param symbol: str:
+    :param rate_limit: int:
+    :param time_window: float:
+    :param success: bool:  (Default value = True)
+    :param symbol: str:
+    :param rate_limit: int:
+    :param time_window: float:
+    :param success: bool:  (Default value = True)
+    :param symbol: 
+    :type symbol: str :
+    :param rate_limit: 
+    :type rate_limit: int :
+    :param time_window: 
+    :type time_window: float :
+    :param success: (Default value = True)
+    :type success: bool :
+    :param symbol: 
+    :type symbol: str :
+    :param rate_limit: 
+    :type rate_limit: int :
+    :param time_window: 
+    :type time_window: float :
+    :param success: (Default value = True)
+    :type success: bool :
+    :param symbol: str: 
+    :param rate_limit: int: 
+    :param time_window: float: 
+    :param success: bool:  (Default value = True)
 
-    rate_limit : int :
-
-    time_window : float :
-
-    success : bool :
-        (Default value = True)
-    symbol: str :
-
-    rate_limit: int :
-
-    time_window: float :
-
-    success: bool :
-         (Default value = True)
-
-    Returns
-    -------
-
-
+    
     """
     status = "success" if success else "failure"
     message = (
