@@ -27,26 +27,6 @@ def validate_data(data: dict[str, Any]) -> bool:
       data: dict[str:
       Any]:
 
-    Returns:
-    -------
-      bool: True if data is valid, False otherwise.
-
-    Raises:
-    ------
-      TypeError: If the data is not a dictionary.
-
-    Notes:
-    -----
-    The function logs an error message for each validation failure.
-
-    Args:
-    ----
-      data: dict[str:
-      Any]:
-
-    Returns:
-    -------
-
     Parameters
     ----------
     data :
@@ -57,14 +37,24 @@ def validate_data(data: dict[str, Any]) -> bool:
         param data: dict[str:
     Any :
 
-    data: dict[str :
+    data : dict[str :
 
     Any] :
+
+    data: dict[str :
 
 
     Returns
     -------
 
+    Notes
+    -----
+    The function logs an error message for each validation failure.
+
+    Args:
+    ----
+      data: dict[str:
+      Any]:
     """
     required_keys: set[str] = {"symbol", "price", "volume", "timestamp"}
 
@@ -111,23 +101,6 @@ def _validate_symbol(symbol: str) -> bool:
       symbol(str): The value of the 'symbol' field.
       symbol: str:
 
-    Returns:
-    -------
-      bool: True if valid, False otherwise.
-
-    Notes:
-    -----
-    The function checks the provided symbol to ensure it is a string and contains
-    only alphabetical characters. The function logs an error message if the
-    validation fails.
-
-    Args:
-    ----
-      symbol: str:
-
-    Returns:
-    -------
-
     Parameters
     ----------
     symbol :
@@ -136,12 +109,23 @@ def _validate_symbol(symbol: str) -> bool:
         str:
     symbol :
         str:
+    symbol : str :
+
     symbol: str :
 
 
     Returns
     -------
 
+    Notes
+    -----
+    The function checks the provided symbol to ensure it is a string and contains
+    only alphabetical characters. The function logs an error message if the
+    validation fails.
+
+    Args:
+    ----
+      symbol: str:
     """
     if not isinstance(symbol, str) or not symbol.isalpha():
         logger.error(f"Invalid symbol format: {symbol}")
@@ -157,11 +141,23 @@ def _validate_price(price: Any) -> bool:
       price(Any): The value of the 'price' field.
       price: Any:
 
-    Returns:
-    -------
-      bool: True if valid, False otherwise.
+    Parameters
+    ----------
+    price :
+        Any:
+    price :
+        Any:
+    price :
+        Any:
+    price : Any :
 
-    Notes:
+    price: Any :
+
+
+    Returns
+    -------
+
+    Notes
     -----
         A non-negative number is used to represent the price of a stock quote.
         The function checks the provided price to ensure it is an integer or
@@ -171,24 +167,6 @@ def _validate_price(price: Any) -> bool:
     Args:
     ----
       price: Any:
-
-    Returns:
-    -------
-
-    Parameters
-    ----------
-    price :
-        Any:
-    price :
-        Any:
-    price :
-        Any:
-    price: Any :
-
-
-    Returns
-    -------
-
     """
     # Check if the price is an integer or float and if it is non-negative
     if not isinstance(price, (int, float)) or price < 0:
@@ -204,30 +182,6 @@ def _validate_volume(volume: Any) -> bool:
     ----
         volume (Any): The value of the 'volume' field.
 
-    Returns:
-    -------
-        bool: True if valid, False otherwise.
-
-    Notes:
-    -----
-        A non-negative integer is used to represent the volume of a stock quote.
-        The function checks that the provided volume is of type int and if it
-        is non-negative. If the validation fails, an error message is logged.
-
-    Args:
-    ----
-      volume: Any:
-
-    Returns:
-    -------
-
-    Args:
-    ----
-      volume: Any:
-
-    Returns:
-    -------
-
     Parameters
     ----------
     volume :
@@ -236,12 +190,23 @@ def _validate_volume(volume: Any) -> bool:
         Any:
     volume :
         Any:
+    volume : Any :
+
     volume: Any :
 
 
     Returns
     -------
 
+    Notes
+    -----
+        A non-negative integer is used to represent the volume of a stock quote.
+        The function checks that the provided volume is of type int and if it
+        is non-negative. If the validation fails, an error message is logged.
+
+    Args:
+    ----
+      volume: Any:
     """
     if not isinstance(volume, int) or volume < 0:
         logger.error(f"Invalid volume format: {volume}")
@@ -259,24 +224,6 @@ def _validate_timestamp(timestamp: Any) -> bool:
     ----
         timestamp (Any): The value of the 'timestamp' field.
 
-    Returns:
-    -------
-        bool: True if valid, False otherwise.
-
-    Args:
-    ----
-      timestamp: Any:
-
-    Returns:
-    -------
-
-    Args:
-    ----
-      timestamp: Any:
-
-    Returns:
-    -------
-
     Parameters
     ----------
     timestamp :
@@ -285,11 +232,18 @@ def _validate_timestamp(timestamp: Any) -> bool:
         Any:
     timestamp :
         Any:
+    timestamp : Any :
+
     timestamp: Any :
 
 
     Returns
     -------
+    Args :
+
+    ----
+        timestamp: Any:
+
 
     """
     # Ensure the timestamp is a string

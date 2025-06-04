@@ -22,26 +22,6 @@ def request_with_timeout(url: str, timeout: int = 10) -> dict | None:
         url (str): The URL to request data from.
         timeout (int): The time in seconds to wait for the request to complete.
 
-    Returns:
-    -------
-        Optional[dict]: The JSON response from the request, or None if the request fails.
-
-    Args:
-    ----
-      url: str:
-      timeout: int:  (Default value = 10)
-
-    Returns:
-    -------
-
-    Args:
-    ----
-      url: str:
-      timeout: int:  (Default value = 10)
-
-    Returns:
-    -------
-
     Parameters
     ----------
     url :
@@ -56,6 +36,10 @@ def request_with_timeout(url: str, timeout: int = 10) -> dict | None:
         str:
     timeout :
         int:  (Default value = 10)
+    url : str :
+
+    timeout : int :
+        (Default value = 10)
     url: str :
 
     timeout: int :
@@ -63,6 +47,12 @@ def request_with_timeout(url: str, timeout: int = 10) -> dict | None:
 
     Returns
     -------
+    Args :
+
+    ----
+        url: str:
+        timeout: int:  (Default value = 10)
+
 
     """
     # Check if the URL is empty

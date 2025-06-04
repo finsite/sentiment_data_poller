@@ -47,9 +47,6 @@ def publish_to_queue(payload: list[dict]) -> None:
       payload: list[dict]:
       payload: list[dict]:
 
-    Returns:
-    -------
-
     Parameters
     ----------
     payload :
@@ -58,11 +55,14 @@ def publish_to_queue(payload: list[dict]) -> None:
         list[dict]:
     payload :
         list[dict]:
+    payload : list[dict] :
+
     payload: list[dict] :
 
 
     Returns
     -------
+
 
     """
     for message in payload:
@@ -82,9 +82,6 @@ def _send_to_rabbitmq(data: dict) -> None:
       data: dict:
       data: dict:
 
-    Returns:
-    -------
-
     Parameters
     ----------
     data :
@@ -93,11 +90,14 @@ def _send_to_rabbitmq(data: dict) -> None:
         dict:
     data :
         dict:
+    data : dict :
+
     data: dict :
 
 
     Returns
     -------
+
 
     """
     try:
@@ -130,9 +130,6 @@ def _send_to_sqs(data: dict) -> None:
       data: dict:
       data: dict:
 
-    Returns:
-    -------
-
     Parameters
     ----------
     data :
@@ -141,11 +138,14 @@ def _send_to_sqs(data: dict) -> None:
         dict:
     data :
         dict:
+    data : dict :
+
     data: dict :
 
 
     Returns
     -------
+
 
     """
     if not sqs_client or not SQS_QUEUE_URL:

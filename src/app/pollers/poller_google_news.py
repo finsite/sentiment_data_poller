@@ -27,11 +27,14 @@ def fetch_google_news(symbol: str) -> list[dict[str, Any]]:
         str:
     symbol :
         str:
+    symbol : str :
+
     symbol: str :
 
 
     Returns
     -------
+
 
     """
     encoded_symbol = urllib.parse.quote_plus(symbol)
@@ -88,15 +91,20 @@ def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
         dict[str:
     Any :
 
+    symbol : str :
+
+    article : dict[str :
+
+    Any] :
+
     symbol: str :
 
     article: dict[str :
 
-    Any] :
-
 
     Returns
     -------
+
 
     """
     return {

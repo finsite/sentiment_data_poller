@@ -26,11 +26,14 @@ def fetch_benzinga_news(symbol: str) -> list[dict]:
         str:
     symbol :
         str:
+    symbol : str :
+
     symbol: str :
 
 
     Returns
     -------
+
 
     """
     try:
@@ -65,6 +68,10 @@ def build_payload(symbol: str, item: dict) -> dict:
         str:
     item :
         dict:
+    symbol : str :
+
+    item : dict :
+
     symbol: str :
 
     item: dict :
@@ -72,6 +79,7 @@ def build_payload(symbol: str, item: dict) -> dict:
 
     Returns
     -------
+
 
     """
     return {

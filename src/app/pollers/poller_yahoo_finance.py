@@ -27,11 +27,14 @@ def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
         str:
     symbol :
         str:
+    symbol : str :
+
     symbol: str :
 
 
     Returns
     -------
+
 
     """
     try:
@@ -87,15 +90,20 @@ def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
         dict[str:
     Any :
 
+    symbol : str :
+
+    article : dict[str :
+
+    Any] :
+
     symbol: str :
 
     article: dict[str :
 
-    Any] :
-
 
     Returns
     -------
+
 
     """
     return {

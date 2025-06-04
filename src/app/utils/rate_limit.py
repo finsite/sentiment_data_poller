@@ -25,9 +25,6 @@ class RateLimiter:
     Args:
     ----
 
-    Returns:
-    -------
-
     Parameters
     ----------
 
@@ -69,24 +66,6 @@ class RateLimiter:
             context (str, optional): Optional context for logging (e.g., poller type).
                 Defaults to "RateLimiter".
 
-        Returns:
-        -------
-            None
-
-        Args:
-        ----
-          context: str:  (Default value = "RateLimiter")
-
-        Returns:
-        -------
-
-        Args:
-        ----
-          context: str:  (Default value = "RateLimiter")
-
-        Returns:
-        -------
-
         Parameters
         ----------
         context :
@@ -95,11 +74,18 @@ class RateLimiter:
             str:  (Default value = "RateLimiter")
         context :
             str:  (Default value = "RateLimiter")
+        context : str :
+            (Default value = "RateLimiter")
         context: str :
              (Default value = "RateLimiter")
 
         Returns
         -------
+        Args :
+
+        ----
+            context: str:  (Default value = "RateLimiter")
+
 
         """
         with self._lock:  # type: ignore # type: threading.Lock

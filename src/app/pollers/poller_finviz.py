@@ -26,11 +26,14 @@ def fetch_finviz_news(symbol: str) -> list[dict]:
         str:
     symbol :
         str:
+    symbol : str :
+
     symbol: str :
 
 
     Returns
     -------
+
 
     """
     news: list[dict] = []
@@ -113,6 +116,10 @@ def build_payload(symbol: str, article: dict) -> dict:
         str:
     article :
         dict:
+    symbol : str :
+
+    article : dict :
+
     symbol: str :
 
     article: dict :
@@ -120,6 +127,7 @@ def build_payload(symbol: str, article: dict) -> dict:
 
     Returns
     -------
+
 
     """
     return {

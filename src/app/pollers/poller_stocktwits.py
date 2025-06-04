@@ -25,11 +25,14 @@ def fetch_stocktwits_messages(symbol: str) -> list[dict]:
         str:
     symbol :
         str:
+    symbol : str :
+
     symbol: str :
 
 
     Returns
     -------
+
 
     """
     try:
@@ -61,6 +64,10 @@ def build_payload(symbol: str, msg: dict) -> dict:
         str:
     msg :
         dict:
+    symbol : str :
+
+    msg : dict :
+
     symbol: str :
 
     msg: dict :
@@ -68,6 +75,7 @@ def build_payload(symbol: str, msg: dict) -> dict:
 
     Returns
     -------
+
 
     """
     return {

@@ -18,26 +18,6 @@ def setup_logger(name: str | None = None, level: int = logging.INFO) -> logging.
         name (Optional[str]): Name of the logger. Defaults to "poller" if not specified.
         level (int): Logging level to use. Defaults to logging.INFO.
 
-    Returns:
-    -------
-        logging.Logger: Configured logger instance.
-
-    Args:
-    ----
-      name: str | None:  (Default value = None)
-      level: int:  (Default value = logging.INFO)
-
-    Returns:
-    -------
-
-    Args:
-    ----
-      name: str | None:  (Default value = None)
-      level: int:  (Default value = logging.INFO)
-
-    Returns:
-    -------
-
     Parameters
     ----------
     name :
@@ -52,6 +32,10 @@ def setup_logger(name: str | None = None, level: int = logging.INFO) -> logging.
         str | None:  (Default value = None)
     level :
         int:  (Default value = logging.INFO)
+    name : str | None :
+        (Default value = None)
+    level : int :
+        (Default value = logging.INFO)
     name: str | None :
          (Default value = None)
     level: int :
@@ -59,6 +43,12 @@ def setup_logger(name: str | None = None, level: int = logging.INFO) -> logging.
 
     Returns
     -------
+    Args :
+
+    ----
+        name: str | None:  (Default value = None)
+        level: int:  (Default value = logging.INFO)
+
 
     """
     logger_name = name or "poller"

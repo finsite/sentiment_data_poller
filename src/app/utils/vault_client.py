@@ -13,9 +13,6 @@ class VaultClient:
     Args:
     ----
 
-    Returns:
-    -------
-
     Parameters
     ----------
 
@@ -83,9 +80,6 @@ class VaultClient:
           key: str:
           default: str | None:  (Default value = None)
 
-        Returns:
-        -------
-
         Parameters
         ----------
         key :
@@ -100,6 +94,10 @@ class VaultClient:
             str:
         default :
             str | None:  (Default value = None)
+        key : str :
+
+        default : str | None :
+            (Default value = None)
         key: str :
 
         default: str | None :
@@ -107,6 +105,7 @@ class VaultClient:
 
         Returns
         -------
+
 
         """
         return self.secrets.get(key, default)
