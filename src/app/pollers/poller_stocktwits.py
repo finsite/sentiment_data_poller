@@ -24,6 +24,7 @@ def fetch_stocktwits_messages(symbol: str) -> list[dict]:
     :param symbol: type symbol: str :
     :param symbol: str:
     :param symbol: str:
+    :param symbol: str:
     :param symbol: str: 
 
     """
@@ -52,6 +53,8 @@ def build_payload(symbol: str, msg: dict) -> dict:
     :param msg: type msg: dict :
     :param symbol: type symbol: str :
     :param msg: type msg: dict :
+    :param symbol: str:
+    :param msg: dict:
     :param symbol: str:
     :param msg: dict:
     :param symbol: str:

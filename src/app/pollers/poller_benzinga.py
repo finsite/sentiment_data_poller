@@ -25,6 +25,7 @@ def fetch_benzinga_news(symbol: str) -> list[dict]:
     :param symbol: type symbol: str :
     :param symbol: str:
     :param symbol: str:
+    :param symbol: str:
     :param symbol: str: 
 
     """
@@ -56,6 +57,8 @@ def build_payload(symbol: str, item: dict) -> dict:
     :param item: type item: dict :
     :param symbol: type symbol: str :
     :param item: type item: dict :
+    :param symbol: str:
+    :param item: dict:
     :param symbol: str:
     :param item: dict:
     :param symbol: str:

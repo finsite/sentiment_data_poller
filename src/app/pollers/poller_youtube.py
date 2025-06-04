@@ -36,6 +36,7 @@ def fetch_youtube_transcripts(symbol: str) -> list[dict[str, Any]]:
     :param symbol: type symbol: str :
     :param symbol: str:
     :param symbol: str:
+    :param symbol: str:
     :param symbol: str: 
 
     """
@@ -104,6 +105,8 @@ def build_payload(symbol: str, video: dict[str, Any]) -> dict[str, Any]:
     :param symbol: str:
     :param video: dict[str:
     :param symbol: str:
+    :param video: dict[str:
+    :param Any: param symbol: str:
     :param video: dict[str:
     :param Any: 
     :param symbol: str: 

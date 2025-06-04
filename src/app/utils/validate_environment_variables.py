@@ -29,17 +29,16 @@ def validate_environment_variables(required_variables: list[str]) -> None:
     :param required_variables: type required_variables: list[str] :
     :param required_variables: type required_variables: list[str] :
     :param required_variables: list[str]:
-    :param required_variables: list[str]:
-    :param required_variables: list[str]: 
-    :returns: Args->
     
     Notes:
     -----
         The function logs a success message if all variables are set, and raises an error if any variables are missing.
     
     Args:
-    ----
       required_variables: list[str]:
+    :param required_variables: list[str]:
+    :param required_variables: list[str]:
+    :param required_variables: list[str]: 
 
     """
     # Check that required_variables is a list of strings

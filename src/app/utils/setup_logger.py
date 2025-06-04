@@ -38,18 +38,34 @@ def setup_logger(name: str | None = None, level: int = logging.INFO) -> logging.
     :param level: int:  (Default value = logging.INFO)
     :param name: str | None:  (Default value = None)
     :param level: int:  (Default value = logging.INFO)
+    :param name: str | None:  (Default value = None)
+    :param level: int:  (Default value = logging.INFO)
 
     """
+    # Default logger name if not provided
     logger_name = name or "poller"
+
+    # Get the logger instance
     logger = logging.getLogger(logger_name)
 
+    # Check if logger already has handlers to avoid duplicate logs
     if not logger.hasHandlers():
+        # Set the logging level
         logger.setLevel(level)
+
+        # Create a StreamHandler to output logs to the console
         handler = logging.StreamHandler()
+
+        # Define the log message format
         formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+
+        # Set the formatter for the handler
         handler.setFormatter(formatter)
+
+        # Add the handler to the logger
         logger.addHandler(handler)
 
+    # Return the configured logger
     return logger
 
 

@@ -22,12 +22,17 @@ def retry_request(
 ) -> Any | None:
     """Retries a given function if it raises an exception.
     
-    Args:
-    ----
-        func (Callable[[], Any]): The function to be retried.
-        max_retries (int): The maximum number of retry attempts. Defaults to 3.
-        delay_seconds (int): The delay in seconds between retries. Defaults to 5.
+    The function is retried up to a maximum number of times. Between each retry,
+    the function waits for a specified delay in seconds. If the function still
+    raises an exception after the maximum number of retries, it raises that
+    exception.
 
+    :param func: The function to be retried
+    :param max_retries: The maximum number of retry attempts
+    :param delay_seconds: The delay in seconds between retries
+    :param func: Callable
+    :param Any: param max_retries: int
+    :param delay_seconds: int
     :param func: Callable[[]:
     :param Any: param *:
     :param max_retries: int:  (Default value = 3)
@@ -52,6 +57,10 @@ def retry_request(
     :param delay_seconds: Default value = 5)
     :type delay_seconds: int :
     :param func: Callable[[]:
+    :param max_retries: int:  (Default value = 3)
+    :param delay_seconds: int:  (Default value = 5)
+    :param func: Callable[[]:
+    :param Any: param *:
     :param max_retries: int:  (Default value = 3)
     :param delay_seconds: int:  (Default value = 5)
     :param func: Callable[[]:
@@ -74,8 +83,9 @@ def retry_request(
     # Attempt to execute the function up to max_retries times
     for attempt in range(1, max_retries + 1):
         try:
+            # Call the function and return its result if successful
             logger.debug(f"Attempt {attempt} of {max_retries}.")
-            return func()  # Call the function and return its result if successful
+            return func()
         except Exception as exception:
             last_exception = exception  # Store the exception
             logger.warning(

@@ -25,6 +25,7 @@ def fetch_seeking_alpha_feed(symbol: str) -> list[dict]:
     :param symbol: type symbol: str :
     :param symbol: str:
     :param symbol: str:
+    :param symbol: str:
     :param symbol: str: 
 
     """
@@ -66,6 +67,8 @@ def build_payload(symbol: str, article: dict) -> dict:
     :param article: type article: dict :
     :param symbol: type symbol: str :
     :param article: type article: dict :
+    :param symbol: str:
+    :param article: dict:
     :param symbol: str:
     :param article: dict:
     :param symbol: str:
