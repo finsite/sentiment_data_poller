@@ -81,9 +81,10 @@ class VaultClient:
         Returns:
         -------
 
+        :param key: str:
+        :param default: str | None:  (Default value = None)
         :param key: str: 
         :param default: str | None:  (Default value = None)
 
-        
         """
         return self.secrets.get(key, default)

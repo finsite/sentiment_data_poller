@@ -47,10 +47,11 @@ def validate_data(data: dict[str, Any]) -> bool:
     Returns:
     -------
 
+    :param data: dict[str:
+    :param Any: 
     :param data: dict[str: 
     :param Any]: 
 
-    
     """
     required_keys: set[str] = {"symbol", "price", "volume", "timestamp"}
 
@@ -114,9 +115,9 @@ def _validate_symbol(symbol: str) -> bool:
     Returns:
     -------
 
+    :param symbol: str:
     :param symbol: str: 
 
-    
     """
     if not isinstance(symbol, str) or not symbol.isalpha():
         logger.error(f"Invalid symbol format: {symbol}")
@@ -150,9 +151,9 @@ def _validate_price(price: Any) -> bool:
     Returns:
     -------
 
+    :param price: Any:
     :param price: Any: 
 
-    
     """
     # Check if the price is an integer or float and if it is non-negative
     if not isinstance(price, (int, float)) or price < 0:
@@ -192,9 +193,9 @@ def _validate_volume(volume: Any) -> bool:
     Returns:
     -------
 
+    :param volume: Any:
     :param volume: Any: 
 
-    
     """
     if not isinstance(volume, int) or volume < 0:
         logger.error(f"Invalid volume format: {volume}")
@@ -230,9 +231,9 @@ def _validate_timestamp(timestamp: Any) -> bool:
     Returns:
     -------
 
+    :param timestamp: Any:
     :param timestamp: Any: 
 
-    
     """
     # Ensure the timestamp is a string
     if not isinstance(timestamp, str):

@@ -18,6 +18,7 @@ BENZINGA_NEWS_URL = "https://api.benzinga.com/api/v2/news"
 def fetch_benzinga_news(symbol: str) -> list[dict]:
     """Fetches news from Benzinga's Newswire API for a given symbol.
 
+    :param symbol: str:
     :param symbol: str: 
 
     """
@@ -39,6 +40,8 @@ def fetch_benzinga_news(symbol: str) -> list[dict]:
 def build_payload(symbol: str, item: dict) -> dict:
     """Standardizes Benzinga API article structure for queue publication.
 
+    :param symbol: str:
+    :param item: dict:
     :param symbol: str: 
     :param item: dict: 
 

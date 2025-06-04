@@ -39,6 +39,8 @@ rate_limiter = RateLimiter(max_requests=FILL_RATE, time_window=CAPACITY)
 def fetch_newsapi_articles(symbol: str, api_key: str) -> list[dict]:
     """Fetches NewsAPI articles for a given stock symbol.
 
+    :param symbol: str:
+    :param api_key: str:
     :param symbol: str: 
     :param api_key: str: 
 
@@ -64,6 +66,8 @@ def fetch_newsapi_articles(symbol: str, api_key: str) -> list[dict]:
 def build_payload(symbol: str, article: dict) -> dict:
     """
 
+    :param symbol: str:
+    :param article: dict:
     :param symbol: str: 
     :param article: dict: 
 

@@ -33,10 +33,11 @@ def get_config_value(key: str, default: str | None = None) -> str:
     ------
       ValueError: If the key is missing and no default is provided.
 
+    :param key: str:
+    :param default: str | None:  (Default value = None)
     :param key: str: 
     :param default: str | None:  (Default value = None)
 
-    
     """
     val = _vault.get(key, os.getenv(key))
     if val is None:

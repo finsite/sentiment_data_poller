@@ -42,10 +42,11 @@ def request_with_timeout(url: str, timeout: int = 10) -> dict | None:
     Returns:
     -------
 
+    :param url: str:
+    :param timeout: int:  (Default value = 10)
     :param url: str: 
     :param timeout: int:  (Default value = 10)
 
-    
     """
     # Check if the URL is empty
     if not url:

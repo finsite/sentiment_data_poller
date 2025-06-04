@@ -17,6 +17,7 @@ API_URL = "https://api.stocktwits.com/api/2/streams/symbol/{}.json"
 def fetch_stocktwits_messages(symbol: str) -> list[dict]:
     """Fetch messages for a symbol from Stocktwits.
 
+    :param symbol: str:
     :param symbol: str: 
 
     """
@@ -35,6 +36,8 @@ def fetch_stocktwits_messages(symbol: str) -> list[dict]:
 def build_payload(symbol: str, msg: dict) -> dict:
     """Constructs a standardized message from a Stocktwits post.
 
+    :param symbol: str:
+    :param msg: dict:
     :param symbol: str: 
     :param msg: dict: 
 

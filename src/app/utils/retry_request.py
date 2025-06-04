@@ -59,13 +59,16 @@ def retry_request(
     Returns:
     -------
 
+    :param func: Callable[[]:
+    :param Any: param *:
+    :param max_retries: int:  (Default value = 3)
+    :param delay_seconds: int:  (Default value = 5)
     :param func: Callable[[]: 
     :param Any]: 
     :param *: 
     :param max_retries: int:  (Default value = 3)
     :param delay_seconds: int:  (Default value = 5)
 
-    
     """
     # Validate the function to be retried
     if func is None:
