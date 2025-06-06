@@ -1,1 +1,5 @@
-__version__ = "0.4.3"
+"""sentiment_data_poller
+
+Auto-generated init file with version."""
+
+__version__ = "0.4.4"
