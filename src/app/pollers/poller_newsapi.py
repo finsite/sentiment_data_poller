@@ -31,10 +31,14 @@ QUERY = "stocks OR earnings OR finance"
 # These config keys must exist in Vault or environment
 NEWSAPI_KEY = get_config_value("NEWSAPI_KEY", "")
 NEWSAPI_RATE_LIMIT = int(get_config_value("NEWSAPI_RATE_LIMIT", "60"))  # requests
-NEWSAPI_WINDOW_SECONDS = int(get_config_value("NEWSAPI_WINDOW_SECONDS", "60"))  # seconds
+NEWSAPI_WINDOW_SECONDS = int(
+    get_config_value("NEWSAPI_WINDOW_SECONDS", "60")
+)  # seconds
 NEWSAPI_TIMEOUT = int(get_config_value("NEWSAPI_TIMEOUT", "10"))
 
-rate_limiter = RateLimiter(max_requests=NEWSAPI_RATE_LIMIT, time_window=NEWSAPI_WINDOW_SECONDS)
+rate_limiter = RateLimiter(
+    max_requests=NEWSAPI_RATE_LIMIT, time_window=NEWSAPI_WINDOW_SECONDS
+)
 
 
 @retry(

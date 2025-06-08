@@ -14,7 +14,9 @@ from app.utils.setup_logger import setup_logger
 
 logger = setup_logger(__name__)
 
-GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
+GOOGLE_NEWS_RSS = (
+    "https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
+)
 
 
 def fetch_google_news(symbol: str) -> list[dict[str, Any]]:
@@ -47,7 +49,9 @@ def fetch_google_news(symbol: str) -> list[dict[str, Any]]:
             dt = datetime.datetime.strptime(published, "%a, %d %b %Y %H:%M:%S %Z")
             timestamp = dt.isoformat()
         except Exception as e:
-            logger.warning(f"Failed to parse publish date for {symbol}: {published} ({e})")
+            logger.warning(
+                f"Failed to parse publish date for {symbol}: {published} ({e})"
+            )
             timestamp = datetime.datetime.utcnow().isoformat()
 
         news_items.append(

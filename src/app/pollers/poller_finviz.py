@@ -56,12 +56,16 @@ def fetch_finviz_news(symbol: str) -> list[dict]:
             try:
                 if " " in timestamp_text:
                     date_str, time_str = timestamp_text.split(" ")
-                    dt = datetime.datetime.strptime(f"{date_str} {time_str}", "%b-%d-%y %I:%M%p")
+                    dt = datetime.datetime.strptime(
+                        f"{date_str} {time_str}", "%b-%d-%y %I:%M%p"
+                    )
                 else:
                     dt = datetime.datetime.strptime(timestamp_text, "%I:%M%p")
                     dt = dt.replace(year=now.year, month=now.month, day=now.day)
             except ValueError as ve:
-                logger.warning(f"Failed to parse timestamp for {symbol}: {timestamp_text} ({ve})")
+                logger.warning(
+                    f"Failed to parse timestamp for {symbol}: {timestamp_text} ({ve})"
+                )
                 continue
 
             news.append(

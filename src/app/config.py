@@ -16,6 +16,7 @@ from app.config_shared import (
     get_config_value,
 )
 
+
 def get_symbols() -> list[str]:
     """Returns a list of symbols to track for this repository."""
     symbols = os.getenv("SYMBOLS", "AAPL,MSFT,GOOG")

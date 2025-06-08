@@ -35,7 +35,9 @@ def fetch_seeking_alpha_feed(symbol: str) -> list[dict[str, Any]]:
         for entry in feed.entries:
             results.append(
                 {
-                    "timestamp": entry.get("published", datetime.datetime.utcnow().isoformat()),
+                    "timestamp": entry.get(
+                        "published", datetime.datetime.utcnow().isoformat()
+                    ),
                     "headline": entry.get("title", ""),
                     "summary": entry.get("summary", ""),
                     "url": entry.get("link", ""),
