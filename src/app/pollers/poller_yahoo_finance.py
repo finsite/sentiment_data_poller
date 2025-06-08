@@ -7,7 +7,8 @@ from typing import Any
 import requests
 from bs4 import BeautifulSoup, Tag
 
-from app.config import get_poll_interval, get_symbols
+from app.config import get_symbols
+from app.config_shared import get_config_value, get_polling_interval
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
@@ -19,16 +20,11 @@ YAHOO_FINANCE_NEWS_URL = "https://finance.yahoo.com/quote/{symbol}?p={symbol}"
 def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
     """Scrapes Yahoo Finance for news articles related to the stock symbol.
 
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: type symbol: str :
-    :param symbol: type symbol: str :
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
+    Args:
+        symbol (str): Stock ticker symbol.
 
+    Returns:
+        list[dict[str, Any]]: List of parsed headline items.
     """
     try:
         url = YAHOO_FINANCE_NEWS_URL.format(symbol=symbol)
@@ -39,7 +35,6 @@ def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
         soup = BeautifulSoup(response.text, "html.parser")
         news_items: list[dict[str, Any]] = []
 
-        # Yahoo Finance uses this tag structure for headlines
         for tag in soup.find_all("a"):
             if not isinstance(tag, Tag):
                 continue
@@ -56,7 +51,7 @@ def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
                     }
                 )
 
-        logger.debug(f"Fetched {len(news_items)} headlines from Yahoo Finance for {symbol}")
+        logger.debug(f"Fetched {len(news_items)} Yahoo Finance headlines for {symbol}")
         return news_items
 
     except Exception as e:
@@ -65,27 +60,14 @@ def fetch_yahoo_news(symbol: str) -> list[dict[str, Any]]:
 
 
 def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
-    """:param symbol: str:
-    :param article: dict[str:
-    :param Any: param symbol: str:
-    :param article: dict[str:
-    :param Any: param symbol: str:
-    :param article: dict[str:
-    :param Any: param symbol:
-    :param article: type article: dict[str :
-    :param Any: param symbol:
-    :param article: type article: dict[str :
-    :param symbol: str:
-    :param article: dict[str:
-    :param symbol: str:
-    :param article: dict[str:
-    :param Any: param symbol: str:
-    :param article: dict[str:
-    :param Any:
-    :param symbol: str:
-    :param article: dict[str:
-    :param Any]:
+    """Constructs a queue-compatible payload from a Yahoo Finance article.
 
+    Args:
+        symbol (str): Stock ticker.
+        article (dict[str, Any]): Parsed article information.
+
+    Returns:
+        dict[str, Any]: Queue-ready payload.
     """
     return {
         "symbol": symbol,
@@ -102,7 +84,7 @@ def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
 def run_yahoo_poller() -> None:
     """Main polling loop for Yahoo Finance."""
     logger.info("📡 Yahoo Finance poller started")
-    interval = get_poll_interval()
+    interval = get_polling_interval()
 
     while True:
         all_payloads: list[dict[str, Any]] = []

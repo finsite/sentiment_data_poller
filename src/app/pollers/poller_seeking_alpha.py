@@ -3,10 +3,12 @@
 import datetime
 import time
 import urllib.parse
+from typing import Any
 
 import feedparser
 
-from app.config import get_poll_interval, get_symbols
+from app.config import get_symbols
+from app.config_shared import get_config_value, get_polling_interval
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
@@ -15,19 +17,14 @@ logger = setup_logger(__name__)
 BASE_RSS_URL = "https://seekingalpha.com/api/sa/combined/{symbol}.xml"
 
 
-def fetch_seeking_alpha_feed(symbol: str) -> list[dict]:
+def fetch_seeking_alpha_feed(symbol: str) -> list[dict[str, Any]]:
     """Fetch and parse Seeking Alpha RSS feed for the given symbol.
 
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: type symbol: str :
-    :param symbol: type symbol: str :
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
+    Args:
+        symbol (str): Stock symbol.
 
+    Returns:
+        list[dict[str, Any]]: Parsed news entries.
     """
     try:
         encoded_symbol = urllib.parse.quote_plus(symbol)
@@ -54,26 +51,15 @@ def fetch_seeking_alpha_feed(symbol: str) -> list[dict]:
         return []
 
 
-def build_payload(symbol: str, article: dict) -> dict:
-    """:param symbol: str:
-    :param article: dict:
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: type symbol: str :
-    :param article: type article: dict :
-    :param symbol: type symbol: str :
-    :param article: type article: dict :
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: str:
-    :param article: dict:
+def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
+    """Constructs a queue-ready payload from a Seeking Alpha article.
 
+    Args:
+        symbol (str): Stock symbol.
+        article (dict[str, Any]): Article data.
+
+    Returns:
+        dict[str, Any]: Payload for message queue.
     """
     return {
         "symbol": symbol,
@@ -92,10 +78,10 @@ def build_payload(symbol: str, article: dict) -> dict:
 def run_seeking_alpha_poller() -> None:
     """Main polling loop for Seeking Alpha."""
     logger.info("📡 Seeking Alpha poller started")
-    interval = get_poll_interval()
+    interval = get_polling_interval()
 
     while True:
-        all_payloads = []
+        all_payloads: list[dict[str, Any]] = []
         symbols = get_symbols()
 
         for symbol in symbols:

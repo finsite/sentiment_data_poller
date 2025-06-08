@@ -2,10 +2,10 @@
 
 import datetime
 import time
-
 import requests
 
-from app.config import get_config_value, get_poll_interval, get_symbols
+from app.config import get_symbols
+from app.config_shared import get_config_value, get_polling_interval
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
@@ -16,19 +16,7 @@ BENZINGA_NEWS_URL = "https://api.benzinga.com/api/v2/news"
 
 
 def fetch_benzinga_news(symbol: str) -> list[dict]:
-    """Fetches news from Benzinga's Newswire API for a given symbol.
-
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: type symbol: str :
-    :param symbol: type symbol: str :
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-
-    """
+    """Fetch news articles from Benzinga Newswire API for a given symbol."""
     try:
         params = {
             "token": BENZINGA_API_KEY,
@@ -37,36 +25,14 @@ def fetch_benzinga_news(symbol: str) -> list[dict]:
         }
         response = requests.get(BENZINGA_NEWS_URL, params=params, timeout=10)
         response.raise_for_status()
-
         return response.json()
     except Exception as e:
-        logger.warning(f"Failed to fetch Benzinga news for {symbol}: {e}")
+        logger.warning(f"❌ Failed to fetch Benzinga news for {symbol}: {e}")
         return []
 
 
 def build_payload(symbol: str, item: dict) -> dict:
-    """Standardizes Benzinga API article structure for queue publication.
-
-    :param symbol: str:
-    :param item: dict:
-    :param symbol: str:
-    :param item: dict:
-    :param symbol: str:
-    :param item: dict:
-    :param symbol: type symbol: str :
-    :param item: type item: dict :
-    :param symbol: type symbol: str :
-    :param item: type item: dict :
-    :param symbol: str:
-    :param item: dict:
-    :param symbol: str:
-    :param item: dict:
-    :param symbol: str:
-    :param item: dict:
-    :param symbol: str:
-    :param item: dict:
-
-    """
+    """Standardize a Benzinga article item for publishing to the queue."""
     return {
         "symbol": symbol,
         "timestamp": item.get("created", datetime.datetime.utcnow().isoformat()),
@@ -84,7 +50,7 @@ def build_payload(symbol: str, item: dict) -> dict:
 def run_benzinga_poller() -> None:
     """Main polling loop for Benzinga Newswire."""
     logger.info("📡 Benzinga poller started")
-    interval = get_poll_interval()
+    interval = get_polling_interval()
 
     while True:
         all_payloads = []

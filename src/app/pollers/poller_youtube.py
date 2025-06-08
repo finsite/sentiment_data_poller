@@ -14,31 +14,26 @@ try:
 except ImportError:
     TranscriptsDisabled = Exception  # fallback if API changes
 
-from app.config import get_config_value, get_poll_interval, get_symbols
+from app.config import get_symbols
+from app.config_shared import get_config_value, get_polling_interval
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
 logger = setup_logger(__name__)
 
-# Constants
 YOUTUBE_API_KEY = get_config_value("YOUTUBE_API_KEY")
 YOUTUBE_SEARCH_QUERY = "finance|stock|market|earnings"
 MAX_RESULTS = 5
 
 
 def fetch_youtube_transcripts(symbol: str) -> list[dict[str, Any]]:
-    """Fetches recent YouTube videos for the symbol and attempts to get transcripts.
+    """Fetch recent YouTube videos and transcripts for the given symbol.
 
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: type symbol: str :
-    :param symbol: type symbol: str :
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
+    Args:
+        symbol (str): Stock ticker symbol.
 
+    Returns:
+        list[dict[str, Any]]: List of video metadata with transcripts.
     """
     videos: list[dict[str, Any]] = []
 
@@ -90,27 +85,14 @@ def fetch_youtube_transcripts(symbol: str) -> list[dict[str, Any]]:
 
 
 def build_payload(symbol: str, video: dict[str, Any]) -> dict[str, Any]:
-    """:param symbol: str:
-    :param video: dict[str:
-    :param Any: param symbol: str:
-    :param video: dict[str:
-    :param Any: param symbol: str:
-    :param video: dict[str:
-    :param Any: param symbol:
-    :param video: type video: dict[str :
-    :param Any: param symbol:
-    :param video: type video: dict[str :
-    :param symbol: str:
-    :param video: dict[str:
-    :param symbol: str:
-    :param video: dict[str:
-    :param Any: param symbol: str:
-    :param video: dict[str:
-    :param Any:
-    :param symbol: str:
-    :param video: dict[str:
-    :param Any]:
+    """Constructs a standardized message from a YouTube video.
 
+    Args:
+        symbol (str): Stock ticker symbol.
+        video (dict[str, Any]): Parsed video information.
+
+    Returns:
+        dict[str, Any]: Queue-ready payload.
     """
     return {
         "symbol": symbol,
@@ -126,9 +108,9 @@ def build_payload(symbol: str, video: dict[str, Any]) -> dict[str, Any]:
 
 
 def run_youtube_poller() -> None:
-    """Main polling loop for YouTube videos."""
+    """Main polling loop for YouTube."""
     logger.info("📡 YouTube poller started")
-    interval = get_poll_interval()
+    interval = get_polling_interval()
 
     while True:
         all_payloads: list[dict[str, Any]] = []

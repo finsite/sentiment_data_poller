@@ -7,7 +7,8 @@ from typing import Any
 
 import feedparser
 
-from app.config import get_poll_interval, get_symbols
+from app.config import get_symbols
+from app.config_shared import get_config_value, get_polling_interval
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
@@ -19,16 +20,11 @@ GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&
 def fetch_google_news(symbol: str) -> list[dict[str, Any]]:
     """Fetches news headlines from Google News RSS for a given stock symbol.
 
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: type symbol: str :
-    :param symbol: type symbol: str :
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
+    Args:
+        symbol (str): Stock symbol to query.
 
+    Returns:
+        list[dict[str, Any]]: A list of news article dictionaries.
     """
     encoded_symbol = urllib.parse.quote_plus(symbol)
     url = GOOGLE_NEWS_RSS.format(symbol=encoded_symbol)
@@ -66,27 +62,14 @@ def fetch_google_news(symbol: str) -> list[dict[str, Any]]:
 
 
 def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
-    """:param symbol: str:
-    :param article: dict[str:
-    :param Any: param symbol: str:
-    :param article: dict[str:
-    :param Any: param symbol: str:
-    :param article: dict[str:
-    :param Any: param symbol:
-    :param article: type article: dict[str :
-    :param Any: param symbol:
-    :param article: type article: dict[str :
-    :param symbol: str:
-    :param article: dict[str:
-    :param symbol: str:
-    :param article: dict[str:
-    :param Any: param symbol: str:
-    :param article: dict[str:
-    :param Any:
-    :param symbol: str:
-    :param article: dict[str:
-    :param Any]:
+    """Constructs a standard payload for queue publishing.
 
+    Args:
+        symbol (str): Stock symbol.
+        article (dict[str, Any]): Article data from RSS feed.
+
+    Returns:
+        dict[str, Any]: Payload formatted for downstream processing.
     """
     return {
         "symbol": symbol,
@@ -103,7 +86,7 @@ def build_payload(symbol: str, article: dict[str, Any]) -> dict[str, Any]:
 def run_google_news_poller() -> None:
     """Main polling loop for Google News."""
     logger.info("📡 Google News poller started")
-    interval = get_poll_interval()
+    interval = get_polling_interval()
 
     while True:
         all_payloads: list[dict[str, Any]] = []

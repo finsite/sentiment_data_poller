@@ -2,11 +2,11 @@
 
 import datetime
 import time
-
 import requests
 from bs4 import BeautifulSoup, Tag
 
-from app.config import get_poll_interval, get_symbols
+from app.config import get_symbols
+from app.config_shared import get_config_value, get_polling_interval
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
@@ -16,19 +16,7 @@ BASE_URL = "https://finviz.com/quote.ashx?t={}"
 
 
 def fetch_finviz_news(symbol: str) -> list[dict]:
-    """Scrapes the Finviz news table for a given symbol.
-
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: type symbol: str :
-    :param symbol: type symbol: str :
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-
-    """
+    """Scrapes the Finviz news table for a given symbol."""
     news: list[dict] = []
 
     try:
@@ -54,13 +42,11 @@ def fetch_finviz_news(symbol: str) -> list[dict]:
                 continue
 
             timestamp_text = tds[0].get_text(strip=True)
-
             td_element = tds[1]
             if not isinstance(td_element, Tag):
                 continue
 
             headline_text = td_element.get_text(strip=True)
-
             a_tag = td_element.find("a")
             if not isinstance(a_tag, Tag) or not a_tag.has_attr("href"):
                 continue
@@ -87,32 +73,13 @@ def fetch_finviz_news(symbol: str) -> list[dict]:
             )
 
     except Exception as e:
-        logger.warning(f"Failed to fetch Finviz news for {symbol}: {e}")
+        logger.warning(f"❌ Failed to fetch Finviz news for {symbol}: {e}")
 
     return news
 
 
 def build_payload(symbol: str, article: dict) -> dict:
-    """:param symbol: str:
-    :param article: dict:
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: type symbol: str :
-    :param article: type article: dict :
-    :param symbol: type symbol: str :
-    :param article: type article: dict :
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: str:
-    :param article: dict:
-    :param symbol: str:
-    :param article: dict:
-
-    """
+    """Standardizes Finviz article data for queue publication."""
     return {
         "symbol": symbol,
         "timestamp": article["timestamp"],
@@ -126,9 +93,9 @@ def build_payload(symbol: str, article: dict) -> dict:
 
 
 def run_finviz_poller() -> None:
-    """Main polling loop for Finviz."""
+    """Main polling loop for Finviz headlines."""
     logger.info("📡 Finviz poller started")
-    interval = get_poll_interval()
+    interval = get_polling_interval()
 
     while True:
         all_payloads = []

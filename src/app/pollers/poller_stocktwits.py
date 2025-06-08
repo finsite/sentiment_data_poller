@@ -2,10 +2,12 @@
 
 import datetime
 import time
+from typing import Any
 
 import requests
 
-from app.config import get_poll_interval, get_symbols
+from app.config import get_symbols
+from app.config_shared import get_config_value, get_polling_interval
 from app.message_queue.queue_sender import publish_to_queue
 from app.utils.setup_logger import setup_logger
 
@@ -14,19 +16,14 @@ logger = setup_logger(__name__)
 API_URL = "https://api.stocktwits.com/api/2/streams/symbol/{}.json"
 
 
-def fetch_stocktwits_messages(symbol: str) -> list[dict]:
+def fetch_stocktwits_messages(symbol: str) -> list[dict[str, Any]]:
     """Fetch messages for a symbol from Stocktwits.
 
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: type symbol: str :
-    :param symbol: type symbol: str :
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
-    :param symbol: str:
+    Args:
+        symbol (str): Stock symbol.
 
+    Returns:
+        list[dict[str, Any]]: Parsed Stocktwits messages.
     """
     try:
         url = API_URL.format(symbol)
@@ -40,28 +37,15 @@ def fetch_stocktwits_messages(symbol: str) -> list[dict]:
         return []
 
 
-def build_payload(symbol: str, msg: dict) -> dict:
+def build_payload(symbol: str, msg: dict[str, Any]) -> dict[str, Any]:
     """Constructs a standardized message from a Stocktwits post.
 
-    :param symbol: str:
-    :param msg: dict:
-    :param symbol: str:
-    :param msg: dict:
-    :param symbol: str:
-    :param msg: dict:
-    :param symbol: type symbol: str :
-    :param msg: type msg: dict :
-    :param symbol: type symbol: str :
-    :param msg: type msg: dict :
-    :param symbol: str:
-    :param msg: dict:
-    :param symbol: str:
-    :param msg: dict:
-    :param symbol: str:
-    :param msg: dict:
-    :param symbol: str:
-    :param msg: dict:
+    Args:
+        symbol (str): Stock symbol.
+        msg (dict[str, Any]): Message object.
 
+    Returns:
+        dict[str, Any]: Queue-ready payload.
     """
     return {
         "symbol": symbol,
@@ -78,10 +62,10 @@ def build_payload(symbol: str, msg: dict) -> dict:
 def run_stocktwits_poller() -> None:
     """Main polling loop for Stocktwits."""
     logger.info("📡 Stocktwits poller started")
-    interval = get_poll_interval()
+    interval = get_polling_interval()
 
     while True:
-        all_payloads = []
+        all_payloads: list[dict[str, Any]] = []
         symbols = get_symbols()
 
         for symbol in symbols:
