@@ -331,7 +331,7 @@ pyyaml-env-tag==1.1
     # via mkdocs
 questionary==2.1.0
     # via commitizen
-requests[socks]==2.32.3
+requests[socks]==2.32.4
     # via
     #   -r D:\git\sentiment_data_poller\requirements.in
     #   -r requirements.txt

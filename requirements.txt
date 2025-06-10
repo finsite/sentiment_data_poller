@@ -122,7 +122,7 @@ python-dotenv==1.1.0
     # via -r requirements.in
 pytz==2025.2
     # via pandas
-requests[socks]==2.32.3
+requests[socks]==2.32.4
     # via
     #   -r requirements.in
     #   google-api-core
