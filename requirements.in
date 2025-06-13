@@ -41,3 +41,4 @@ youtube_transcript_api>=0.6.1     # Optional
 #
 tenacity>=8.2.2,<9.0
 feedparser>=6.0.0,<7.0.0
+prometheus_client>=0.17.1
