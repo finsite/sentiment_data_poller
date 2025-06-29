@@ -2,6 +2,8 @@
 requests>=2.28.0,<3.0
 python-dotenv>=1.0.0
 loguru>=0.7.0
+tenacity>=8.2.2,<9.0.0
+prometheus_client>=0.17.1
 
 # Messaging and cloud
 boto3>=1.28.0,<2.0
@@ -25,8 +27,8 @@ snscrape>=0.6.0
 # Twitter API client (optional)
 tweepy>=4.14.0  # Optional
 
-# RSS parsing for Seeking Alpha, Google News, Yahoo
-feedparser>=6.0.10
+# RSS parsing
+feedparser>=6.0.10,<7.0.0
 
 # HTML parsing for Finviz, Yahoo Finance
 beautifulsoup4>=4.12.0
@@ -34,11 +36,29 @@ beautifulsoup4>=4.12.0
 # NewsAPI client (requires free or paid API key)
 newsapi-python>=0.2.7  # Optional
 
-# YouTube support (transcripts, search)
+# YouTube support
 google-api-python-client>=2.95.0  # Optional
 youtube_transcript_api>=0.6.1     # Optional
 
-#
-tenacity>=8.2.2,<9.0
-feedparser>=6.0.0,<7.0.0
-prometheus_client>=0.17.1
+# Structured data validation
+pydantic>=2.0,<3.0
+
+# Rate limiting (optional)
+ratelimit>=2.2,<3.0
+
+# Timezone / datetime handling
+python-dateutil>=2.8.2,<3.0
+pytz>=2023.3
+
+# JSON serialization (optional)
+orjson>=3.9.0
+
+# Structured logging (optional)
+structlog>=23.1.0
+
+# Security scanning (optional)
+bandit>=1.7.5
+
+# Optional browser automation
+# selenium>=4.0.0
+# playwright>=1.0.0
