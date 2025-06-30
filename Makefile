@@ -1,3 +1,4 @@
+
 .PHONY: help install test lint audit format clean clean-all compile preflight precommit security bump docker-build sbom sign-image watch
 
 help:
@@ -62,17 +63,36 @@ clean:
 clean-all: clean
 	rm -rf .mypy_cache .pytest_cache .coverage htmlcov dist build
 
-# 🟡 OPTIONAL: Enable if you use syft for SBOM generation
-# Requires: https://github.com/anchore/syft
-# sbom:
-# 	syft . -o spdx-json > sbom.spdx.json
+# -----------------------------------------------------------------------------
+# Repo Sync Utilities (from repo-utils-shared)
+# -----------------------------------------------------------------------------
 
-# 🟡 OPTIONAL: Enable if you use cosign to sign Docker images
-# Requires: https://github.com/sigstore/cosign
+sync:
+	@echo "🔍 Running dry-run sync (no changes applied)..."
+	python sync_if_needed.py
+
+sync-apply:
+	@echo "🚀 Applying sync to all repositories..."
+	python sync_if_needed.py --apply && echo "✅ Sync complete. Changes logged in sync.log"
+
+# -----------------------------------------------------------------------------
+# Attestation and SBOM Targets
+# -----------------------------------------------------------------------------
+
+sbom-py:
+	cyclonedx-py -o bom.json
+
+sbom-image:
+	syft . -o spdx-json > sbom.spdx.json
+
+attest: sbom-py sbom-image audit
+
+# -----------------------------------------------------------------------------
+# Optional Utilities (enable as needed)
+# -----------------------------------------------------------------------------
+
 # sign-image:
 # 	cosign sign $(shell basename $(PWD)):latest
 
-# 🟡 OPTIONAL: Enable if you use pytest-watch
-# Requires: pip install pytest-watch
 # watch:
 # 	ptw --onfail "notify-send 'Test failed!'"

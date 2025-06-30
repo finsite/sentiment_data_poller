@@ -15,6 +15,11 @@ repos:
         args: [--fix=lf]
   - repo: local
     hooks:
+      - id: check-compiled-requirements
+        name: Check pip-compile output
+        entry: python .hooks/check-compiled-requirements.py
+        language: system
+        pass_filenames: false
       - id: preflight-check
         name: Preflight Checks
         entry: make preflight
@@ -26,19 +31,17 @@ repos:
       - id: codespell
         # Updated to valid regex
         exclude: package-lock\.json
-        args: [--ignore-words-list, hte]
+        args: ['--ignore-words-list=hte,astroid']
   - repo: https://github.com/psf/black
     rev: 25.1.0
     hooks:
       - id: black
-
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.11.8
     hooks:
       - id: ruff
         args: [check, --fix, --extend-select=D, ANN]  # <--- 'check' added here
       - id: ruff-format
-
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.19.1
     hooks:
@@ -88,6 +91,13 @@ repos:
         args: [-r, src, tests]
         pass_filenames: false
         language: python
+  - repo: https://github.com/returntocorp/semgrep
+    rev: v1.66.0
+    hooks:
+      - id: semgrep
+        language: system  # 👈 forces Semgrep to use your system Python install
+        args: [--config=p/security-audit]
+        pass_filenames: false
   - repo: local
     hooks:
       - id: pip-audit
@@ -171,12 +181,22 @@ repos:
       - id: pip-compile-prod
         name: Pip Compile Production Requirements
         language: system
-        entry: pip-compile --upgrade --output-file=requirements.txt requirements.in
+        entry: pip-compile
+        args:
+          - --upgrade
+          - --strip-extras
+          - --output-file=requirements.txt
+          - requirements.in
         files: ^requirements\.in$
       - id: pip-compile-dev
         name: Pip Compile Dev Requirements
         language: system
-        entry: pip-compile --upgrade --output-file=requirements-dev.txt requirements-dev.in
+        entry: pip-compile
+        args:
+          - --upgrade
+          - --strip-extras
+          - --output-file=requirements-dev.txt
+          - requirements-dev.in
         files: ^requirements-dev\.in$
   - repo: local
     hooks:
@@ -194,5 +214,6 @@ repos:
         entry: .hooks/check-version-consistency.py
         language: python
         types: [python]
+        pass_filenames: false
         description: |-
-          Ensure that pyproject.toml and src/app/__init__.py have matching version numbers.
+          Ensure that pyproject.toml, src/app/__init__.py, and CHANGELOG.md all have matching version numbers.
