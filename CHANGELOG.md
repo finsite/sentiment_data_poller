@@ -1,3 +1,9 @@
+## v0.7.0 (2025-06-30)
+
+### Feat
+
+- verify all poller repos are synchronized with current files
+
 ## v0.6.0 (2025-06-29)
 
 ### Feat
