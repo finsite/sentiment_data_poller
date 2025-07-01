@@ -203,8 +203,9 @@ update-checker==0.18.0
     # via praw
 uritemplate==4.2.0
     # via google-api-python-client
-urllib3==2.4.0
+urllib3==2.5.0
     # via
+    #   -r requirements.in
     #   botocore
     #   requests
 websocket-client==1.8.0
