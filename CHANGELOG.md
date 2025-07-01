@@ -1,3 +1,9 @@
+## v0.8.0 (2025-07-01)
+
+### Feat
+
+- complete backtest repos and fix the logging
+
 ## v0.7.0 (2025-06-30)
 
 ### Feat
