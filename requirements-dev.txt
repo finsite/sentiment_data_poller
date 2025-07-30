@@ -10,7 +10,7 @@ argcomplete==3.6.2
     # via commitizen
 babel==2.17.0
     # via mkdocs-material
-backrefs==5.9
+backrefs==6.0.1
     # via mkdocs-material
 bandit==1.8.6
     # via
@@ -20,7 +20,7 @@ beautifulsoup4==4.13.4
     # via
     #   -r D:\git\sentiment_data_poller\requirements.in
     #   snscrape
-black==24.10.0
+black==25.1.0
     # via -r requirements-dev.in
 boto3==1.39.14
     # via -r D:\git\sentiment_data_poller\requirements.in
@@ -28,7 +28,7 @@ botocore==1.39.14
     # via
     #   boto3
     #   s3transfer
-cachetools==5.5.2
+cachetools==6.1.0
     # via google-auth
 certifi==2025.7.14
     # via requests
@@ -92,7 +92,7 @@ httplib2==0.22.0
     # via
     #   google-api-python-client
     #   google-auth-httplib2
-hvac==1.2.1
+hvac==2.3.0
     # via -r D:\git\sentiment_data_poller\requirements.in
 idna==3.10
     # via requests
@@ -154,7 +154,7 @@ mypy-extensions==1.1.0
     #   mypy
 newsapi-python==0.2.7
     # via -r D:\git\sentiment_data_poller\requirements.in
-numpy==1.26.4
+numpy==2.3.2
     # via
     #   -r D:\git\sentiment_data_poller\requirements.in
     #   contourpy
@@ -199,7 +199,7 @@ pluggy==1.6.0
     # via pytest
 praw==7.8.1
     # via -r D:\git\sentiment_data_poller\requirements.in
-prawcore==2.4.0
+prawcore==3.0.2
     # via praw
 prometheus-client==0.22.1
     # via -r D:\git\sentiment_data_poller\requirements.in
@@ -245,7 +245,7 @@ pytest==8.4.1
     # via
     #   -r requirements-dev.in
     #   pytest-cov
-pytest-cov==4.1.0
+pytest-cov==6.2.1
     # via -r requirements-dev.in
 python-dateutil==2.9.0.post0
     # via
@@ -313,9 +313,9 @@ stevedore==5.4.1
     # via bandit
 structlog==25.4.0
     # via -r D:\git\sentiment_data_poller\requirements.in
-tenacity==8.5.0
+tenacity==9.1.2
     # via -r D:\git\sentiment_data_poller\requirements.in
-termcolor==2.3.0
+termcolor==3.1.0
     # via
     #   -r requirements-dev.in
     #   commitizen
