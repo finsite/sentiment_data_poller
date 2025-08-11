@@ -1,0 +1,20 @@
+---
+name: 🧪 Python Matrix Test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20  # ⏲️ Fail fast if something hangs too long
+    strategy:
+      max-parallel: 2  # 🚦 Prevent all matrix jobs running simultaneously
+      matrix:
+        python-version: ['3.9', '3.10', '3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: pip install -e .[dev]
+      - name: Run tests
+        run: pytest --maxfail=3 --disable-warnings --durations=10
