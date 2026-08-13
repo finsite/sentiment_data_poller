@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Install Helm
-        uses: azure/setup-helm@v4
+        uses: azure/setup-helm@v5
         with:
-          version: v3.13.3  # Optional: pin to stable v3
+          version: v4.2.4  # Optional: pin to stable v3
       - name: Lint Helm Chart
         run: helm lint charts/stock_data_poller/
