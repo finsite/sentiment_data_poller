@@ -17,7 +17,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v4
         with:
-          version: v3.13.3
+          version: v3.21.4
       - name: Run Helm Template Validation
         run: helm template charts/${{ env.repo_name }}/ --debug
       - name: Package Helm Chart
