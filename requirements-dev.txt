@@ -2123,9 +2123,9 @@ urllib3==2.5.0 \
     #   -r requirements-dev.in
     #   botocore
     #   requests
-virtualenv==20.33.1 \
-    --hash=sha256:07c19bc66c11acab6a5958b815cbcee30891cd1c2ccf53785a28651a0d8d8a67 \
-    --hash=sha256:1b44478d9e261b3fb8baa5e74a0ca3bc0e05f21aa36167bf9cbf850e542765b8
+virtualenv==21.14.9 \
+    --hash=sha256:4d1bee354cd81c820da3bee56e38be3426490f8d1fc54e10ea5b2072ebad8ef8 \
+    --hash=sha256:ac51744da66ae56ff814b087d65096c94de698ec520adc624b108b679655809b
     # via
     #   -r requirements-dev.in
     #   pre-commit
